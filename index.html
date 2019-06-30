@@ -62,6 +62,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-红宝书阅读笔记ch3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/30/红宝书阅读笔记ch3/" class="article-date">
+  <time datetime="2019-06-30T14:46:01.790Z" itemprop="datePublished">2019-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="红宝书阅读笔记ch3"><a href="#红宝书阅读笔记ch3" class="headerlink" title="红宝书阅读笔记ch3"></a>红宝书阅读笔记ch3</h1><p>基本概念-ECMAScript基础语法  </p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ol>
+<li><p>区分大小写，ECMAScript中的一切都区分大小写。  </p>
+</li>
+<li><p>标识符，就是指变量、函数、属性的名字，标识符有以下几个规则：</p>
+<ul>
+<li>第一个字符必须是一个字母、下划线(_)、或一个美元符号；</li>
+<li>其他字符可以是字母、下划线、美元符号或数字；  </li>
+<li>ECMAScript标识符采用驼峰大小格式，也就是第一个字母小写，剩下的每个单词的首字母大写，例如：firstSecond、myCar、doSomethingImportant。</li>
+<li>不能把关键字、保留字、true、false和null用作标识符。</li>
+<li>可以包含扩展的ASCII或Unicode字母字符。但是不建议这样做，因为很容易和英文混淆。  </li>
+</ul>
+</li>
+<li><p>注释  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//单行注释</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">*</span><br><span class="line">*这是一个多行注释</span><br><span class="line">8/</span><br><span class="line">```  </span><br><span class="line">4. 严格模式  </span><br><span class="line">-  使用 &quot;use strict&quot; 指令  </span><br><span class="line">&quot;use strict&quot; 指令在 JavaScript 1.8.5 (ECMAScript5) 中新增。  </span><br><span class="line">它不是一条语句，但是是一个字面量表达式，在 JavaScript 旧版本中会被忽略。  </span><br><span class="line">&quot;use strict&quot; 的目的是指定代码在严格条件下执行。  </span><br><span class="line">严格模式下你不能使用未声明的变量。  </span><br><span class="line">Note	支持严格模式的浏览器:  </span><br><span class="line">Internet Explorer 10 +、 Firefox 4+ Chrome 13+、 Safari 5.1+、 Opera 12+。  </span><br><span class="line">-  为什么使用严格模式:  </span><br><span class="line">	消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;  </span><br><span class="line">	- 消除代码运行的一些不安全之处，保证代码运行的安全；  </span><br><span class="line">	- 提高编译器效率，增加运行速度；  </span><br><span class="line">	- 为未来新版本的Javascript做好铺垫。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+
+<h1>使用 "use strict":</h1>
+<h3>不允许使用未定义的变量。</h3>
+<p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+<script>
+"use strict";
+x = 3.14;       // 报错 (x 未定义)
+</script>
+
+</body>
+</html>
+```
+5. 语句  
+- ECMAScript中的语句
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/06/30/红宝书阅读笔记ch3/" data-id="cjxj2mew40001jgq63jx7gom4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-红宝书阅读笔记ch2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/25/红宝书阅读笔记ch2/" class="article-date">
@@ -113,6 +177,8 @@
 <!-- HTML 4.01 严格型 -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
+
+<hr>
 <!-- XHTML 4.01 严格型 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -122,12 +188,12 @@
 <ol start="7">
 <li>&lt;noscript&gt;元素<br> 被&lt;noscript&gt;元素包含的标签只有在浏览器不支持监本，或是脚本被禁用的情况下才出现。（&lt;script&gt;元素除外）  </li>
 </ol>
-<p>2019.6.30</p>
+<p>2019/6/30 22:40:43 </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch2/" data-id="cjxj299ui00000cq60sku5yax" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch2/" data-id="cjxj2mevm0000jgq61wqizd1j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="cjxj299xm00020cq6uj7rjfyx" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="cjxj2mewm0002jgq6ig22nmur" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="cjxj299vt00010cq69oiadweb" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="cjxj2mex80003jgq62bh1mqov" class="article-share-link">Share</a>
       
       
     </footer>
@@ -270,6 +336,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/30/红宝书阅读笔记ch3/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/06/25/红宝书阅读笔记ch2/">(no title)</a>
