@@ -91,28 +91,23 @@
     }
 &lt;/script&gt;`</code></pre><p> ② 包含外部的JavaScript文件。<br> <code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/example.js&quot;&gt;&lt;/script&gt;</code><br> 需要注意的是，带有src属性的&lt;script&gt;元素不应该在&lt;script&gt;和&lt;/script&gt;标签之间再含额外的JavaScript代码。如果包含了嵌入的代码，则只会下载并执行外部文件，嵌入的代码会被忽略。<br> 另外，通过&lt;script&gt;元素的src属性还可以包含来自外部域的JavaScript文件。<br> 外部JavaScript文件带有的扩展名不是必须的，因为浏览器不会检查包含JavaScript的文件的扩展名。这样一来，就可以用其他服务器端语言动态生成JavaScript代码。<br> 无论如何包含代码，只要不存在defer和async属性，浏览器都会按照&lt;script&gt;元素在页面中出现的先后顺序对它们依次解析。  </p>
 </li>
-<li><p>标签的位置  </p>
-</li>
-<li><ol>
-<li><p>传统的做法是将所有的&lt;script&gt;都放到&lt;head&gt;元素中，这样做的目的是把所有的外部文件的引用都放在相同的位置，这样做的缺点是只有&lt;head&gt;元素中包含的所有文件被下载之后才会开始呈现页面的内容。对于需要很多的JavaScript代码的页面来说，这会导致浏览器呈现的页面出现明显的延迟，而延迟期间的浏览器窗口会是一片空白。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    &lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">    	&lt;head&gt;</span><br><span class="line">    		&lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    		&lt;title&gt;Example HTML Page&lt;/title&gt;</span><br><span class="line">    		&lt;script type=&quot;text/javascript&quot; src=&quot;js/example1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    		&lt;script type=&quot;text/javascript&quot; src=&quot;js/example2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    	&lt;/head&gt;</span><br><span class="line">    	&lt;body&gt;</span><br><span class="line">    		&lt;!-- 这里放内容 --&gt;</span><br><span class="line">    	&lt;/body&gt;</span><br><span class="line">    &lt;/html&gt;</span><br><span class="line">```  </span><br><span class="line">2.2.  现在为了避免上述的页面空白的问题，现代Web应用程序一般都把JavaScript引用到放在\&lt;body&gt;元素中页面内容的后面，如下所示：</span><br></pre></td></tr></table></figure>
+<li><p>标签的位置<br>传统的做法是将所有的&lt;script&gt;都放到&lt;head&gt;元素中，这样做的目的是把所有的外部文件的引用都放在相同的位置，这样做的缺点是只有&lt;head&gt;元素中包含的所有文件被下载之后才会开始呈现页面的内容。对于需要很多的JavaScript代码的页面来说，这会导致浏览器呈现的页面出现明显的延迟，而延迟期间的浏览器窗口会是一片空白。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">    	&lt;head&gt;</span><br><span class="line">    		&lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    		&lt;title&gt;Example HTML Page&lt;/title&gt;</span><br><span class="line">    		&lt;script type=&quot;text/javascript&quot; src=&quot;js/example1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    		&lt;script type=&quot;text/javascript&quot; src=&quot;js/example2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    	&lt;/head&gt;</span><br><span class="line">    	&lt;body&gt;</span><br><span class="line">    		&lt;!-- 这里放内容 --&gt;</span><br><span class="line">    	&lt;/body&gt;</span><br><span class="line">    &lt;/html&gt;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">现在为了避免上述的页面空白的问题，现代Web应用程序一般都把JavaScript引用到放在\&lt;body&gt;元素中页面内容的后面，如下所示：</span><br></pre></td></tr></table></figure>
 
-<!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-      <meta charset="utf-8">
-      <title>Example HTML Page</title>
-  </head>
-  <body>
-      <!-- 这里放内容 -->
-      <script type="text/javascript" src="js/example1.js"></script>
-      <script type="text/javascript" src="js/example2.js"></script>
-  </body>
-</html>
+ <!DOCTYPE html>
+ <html>
+     <head><meta name="generator" content="Hexo 3.9.0">
+         <meta charset="utf-8">
+         <title>Example HTML Page</title>
+     </head>
+     <body>
+         <!-- 这里放内容 -->
+         <script type="text/javascript" src="js/example1.js"></script>
+         <script type="text/javascript" src="js/example2.js"></script>
+     </body>
+ </html>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">*注：这样写笔记太慢了，我想简单一点写,一个知识点尽量用一句话概括。*</span><br><span class="line"></span><br><span class="line">3. 延迟脚本  </span><br><span class="line">	\&lt;script\&gt;标签中的defer属性，表示脚本在执行时不会影响到页面的构造，相当于脚本会被延迟到页面解析完毕后再执行。有以下几个重点：</span><br><span class="line">	- 	在\&lt;script&gt;标签中设置defer属性，相当于告诉浏览器立即下载，但延迟执行。</span><br><span class="line">	- 	HTML5规范要求脚本按照它们出现的位置依次执行。因此多个延迟脚本，会依次执行，但现实中可能会有其他元素影响到延迟脚本的执行顺序，因此最好只包含一个延迟脚本。</span><br><span class="line">	- 	defer属性只适用于外部脚本。</span><br><span class="line">	- 	将延迟脚本放在页面底部是最佳选择。</span><br><span class="line"></span><br><span class="line">4. 异步脚本  </span><br><span class="line">	\&lt;script\&gt;元素中的async，只适用于外部脚本文件，告诉浏览器立即下载文件，和defer不同的是标记为async的脚本，并不保证它们的先后顺序执行。</span><br><span class="line">	- 因为不能保证两个脚本会依次执行，所以要确保两个脚本之间有依赖关系。</span><br><span class="line">	- 指定async属性的目的在于不让页面等待两个脚本下载和执行，从而保证异步加载页面的其他内容。</span><br><span class="line">	- 建议异步脚本不要在加载期间修改DOM。</span><br><span class="line">	- 异步脚本一定会在load事件前执行，但可能会在DOMContentLoaded事件触发之前或之后执行。</span><br><span class="line">	- 支持异步脚本的浏览器有Firefox3.6、S Safari5、Chrome。</span><br><span class="line">	- 在XML中要将async属性设置成async=&quot;async&quot;。  </span><br><span class="line"></span><br><span class="line">5. 嵌入代码与外部文件  </span><br><span class="line">	外部文件的JavaScript比嵌入式的JavaScript来说有以下三个优点：  </span><br><span class="line">	-  可维护性</span><br><span class="line">	-  可缓存</span><br><span class="line">	-  适应未来  </span><br><span class="line"></span><br><span class="line">6. 文档模式看不懂  </span><br><span class="line">	文档模式通过doctype切换实现。</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
 </li>
 </ol>
 <!-- HTML 4.01 严格型 -->
@@ -132,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch2/" data-id="cjxj1sluw0000y0q6x4hy2lqn" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch2/" data-id="cjxj299ui00000cq60sku5yax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="cjxj1slw20001y0q6rcoplxvm" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="cjxj299xm00020cq6uj7rjfyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="cjxj1slxe0002y0q6ysmt9g68" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="cjxj299vt00010cq69oiadweb" class="article-share-link">Share</a>
       
       
     </footer>
