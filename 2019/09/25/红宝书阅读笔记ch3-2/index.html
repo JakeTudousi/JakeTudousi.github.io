@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ian&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="红宝书阅读笔记ch3-2                                                  红宝书阅读笔记ch3-2    操作符  操作符用于操作数据值，包括算术操作符、位操作符、关系操作符和相等操作符。  ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值，甚至对象。    一元操作符  递增和递减操作符   递增和递减操作符，有前置型和后置型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ian&#39;s blog">
+<meta property="og:url" content="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/index.html">
+<meta property="og:site_name" content="Ian&#39;s blog">
+<meta property="og:description" content="红宝书阅读笔记ch3-2                                                  红宝书阅读笔记ch3-2    操作符  操作符用于操作数据值，包括算术操作符、位操作符、关系操作符和相等操作符。  ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值，甚至对象。    一元操作符  递增和递减操作符   递增和递减操作符，有前置型和后置型。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-25T05:49:35.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ian&#39;s blog">
+<meta name="twitter:description" content="红宝书阅读笔记ch3-2                                                  红宝书阅读笔记ch3-2    操作符  操作符用于操作数据值，包括算术操作符、位操作符、关系操作符和相等操作符。  ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值，甚至对象。    一元操作符  递增和递减操作符   递增和递减操作符，有前置型和后置型。">
+  
+    <link rel="alternate" href="/atom.xml" title="Ian&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ian&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.1n40.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-红宝书阅读笔记ch3-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/25/红宝书阅读笔记ch3-2/" class="article-date">
+  <time datetime="2019-09-25T05:49:35.554Z" itemprop="datePublished">2019-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch3-2</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style></style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch3-2">红宝书阅读笔记ch3-2</h1>
+
+
+
+<h3 id="操作符">操作符</h3>
+
+<p>操作符用于操作数据值，包括算术操作符、位操作符、关系操作符和相等操作符。 <br>
+ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值，甚至对象。</p>
+
+
+
+<h4 id="一元操作符">一元操作符</h4>
+
+<ul><li><p>递增和递减操作符</p>
+
+<ul>
+<li><p>递增和递减操作符，有前置型和后置型。</p></li>
+<li><p>执行前置型递增和递减操作时，变量的值都是在语句求值以前改变的。</p></li>
+<li><p>后置型递增和递减操作是在它们的语句被求值之后才执行的。  </p></li></ul></li>
+<li><p>一元加和减操作符</p>
+
+<ul>
+<li><p>一元加操作符以一个加号(+)表示，可用以加对非数值进行转换。</p></li>
+<li><p>一元减操作符以一个加号(-)表示，同样也可以用于对非数值的转换，然后再将数值转换为负数。  </p></li></ul></li>
+<li><p>位操作符，简单点说就操作二进制的运算。</p>
+
+<ul>
+<li><p>按位非（NOT），由一个波浪线（~）表示，返回二进制数值的反码。</p></li>
+<li><p>按位与（AND），由一个和号字符（&amp;）表示，它有两个操作数，将两个数值的每一位对齐，1 0 得0,0 1得0,1 1得1。</p></li>
+<li><p>按位或（OR）,由一个竖线符号（|）表示，同样也有两个操作数，在两个位有一个位是1就返回1，而只有两个0才返回0。</p></li>
+<li><p>按位异或（XOR），由一个插入符号（^）表示，也有两个操作数，1 1得0,1 0得1,0 1得1,0 0得0。</p></li>
+<li><p>左移操作符由两个小于符号（&lt;&lt;）表示，这个操作符会将数值的所有位向左移动指定的位数，左移会以0来填充空位。</p></li>
+<li><p>有符号的右移操作符由两个大于号（&gt;&gt;）表示，将数值向右移动，但保留符号位。</p></li>
+<li><p>无符号右移操作符由3个大于号（&gt;&gt;&gt;）表示，这个操作符会将所有的32位都向右移动，对于正数来说有符号右移和无符号右移相同，但是对于负数来说无符号右移会把负数的二进制码当成正数的二进制码，而且负数以其绝对值的二进制补码形式表示，会导致无符号右移后结果会非常大。</p></li></ul></li>
+</ul>
+
+
+
+<h4 id="布尔操作符">布尔操作符</h4>
+
+<p>布尔操作符有三个：NOT、AND、OR。</p>
+
+<ul><li><p>逻辑非操作符由一个叹号（！）表示，可以应用于所有数据类型。无论这个值是什么类型，这个操作符都会返回一个布尔值。逻辑非会先将值转换为布尔值，再将其求反。</p>
+
+<ul>
+<li><p>转换规则：</p></li>
+<li><p>如果操作数是一个对象，返回false；</p></li>
+<li><p>如果操作数是一个空字符串，返回true；</p></li>
+<li><p>如果操作数是一个非空字符串，返回false；</p></li>
+<li><p>如果操作数是数值0，返回true；</p></li>
+<li><p>如果操作数是任意非0数值（包括Infinity），返回false；</p></li>
+<li><p>如果操作数是null,返回true；</p></li>
+<li><p>如果操作数是Nan，返回true;</p></li>
+<li><p>如果操作数是undefined,返回true。</p></li></ul></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">alert(!<span class="hljs-literal">false</span>);          <span class="hljs-comment">//返回true</span>
+</div><div class="hljs-line">alert(!<span class="hljs-string">"blue"</span>;          <span class="hljs-comment">//返回false</span>
+</div><div class="hljs-line">alert(!<span class="hljs-number">0</span>);              <span class="hljs-comment">//返回true</span>
+</div></code></pre>
+
+<ul><li><p>逻辑与操作符由两个和号（&amp;&amp;）表示，有两个操作数，真真为真，真假为假，假真为假，假假为假，可应用于所有类型的操作数。  </p>
+
+<ul>
+<li><p>在有一个操作数不是布尔值的情况下，逻辑与就不一定返回布尔值；此时它遵循以下规则：</p></li>
+<li><p>如果第一个操作数是对象，则返回第二个数;</p></li>
+<li><p>如果第二个操作数是对象，则只有在第一个操作数的求值结果为true的情况下才会返回该对象；</p></li>
+<li><p>如果两个操作数都是对象，则返回第二个操作数；</p></li>
+<li><p>如果第一个操作数是null，则返回null；</p></li>
+<li><p>如果第一个操作数是NaN，则返回NaN；</p></li>
+<li><p>如果第一个操作数是undefined，则返回undefined；</p></li>
+<li><p>逻辑与操作属于短路操作，即第一个是为false，那么就不会判断第二个是真还是假的了，它会直接返回false，而不会判断第二个操作数。   </p></li></ul></li>
+<li><p>逻辑或操作符由两个竖线符号（||）表示，有两个操作数，真真为真，真假为真，假真为真，假假为假。</p>
+
+<ul>
+<li><p>如果有一个操作数不是布尔值，逻辑或不一定返回布尔值，遵循规则如下：</p></li>
+<li><p>如果第一个操作数是对象，则返回第一个操作数；</p></li>
+<li><p>如果第一个操作数的求值结果为false，则返回第二个操作数；</p></li>
+<li><p>如果两个操作数都是对象，则返回第一个操作数；</p></li>
+<li><p>如果两个操作数是null，则返回null；</p></li>
+<li><p>如果两个操作数是NaN，则返回NaN；</p></li>
+<li><p>如果两个操作数是undefined，则返回undefined。  </p></li>
+<li><p>逻辑或同样也是短路操作，如果一个操作数的值为true，那么就不会判断第二个操作数的值了。通过这一点我们可以用来避免给变量赋值为null或undefined值。  </p></li></ul></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> myObject = preferredObject || backupObject;
+</div></code></pre>
+
+
+
+<h4 id="乘性操作符">乘性操作符</h4>
+
+<ul><li><p>ECMAScript定义了三个乘性操作符，乘法（*）、除法（/）和求模（%），与其他语言用途类型，只是操作数为非数值的情况下会执行自动类型转换，也就是空字符串将被当做0，布尔值true会被当做0。</p></li>
+<li><p>其他类型的转换规自行看书，P47。</p></li>
+</ul>
+
+
+
+<h4 id="加性操作符">加性操作符</h4>
+
+<p>在ECMAScript中加和减除了简单的算术运算外还有一系列的特殊操作。</p>
+
+<ul><li><p>加法，用（+）表示</p>
+
+<ul>
+<li><p>如果操作数两个都是数值，执行常规的加法计算；</p></li>
+<li><p>如果是NaN、Infinity、-Infinity那么返回的结果也是这三种数据类型。</p></li>
+<li><p>如果+0、-0那么返回的还是0。</p></li>
+<li><p>如果有两个操作数都是字符串，则将第二个操作数和第一个操作数拼接起来。</p></li>
+<li><p>如果只有一个操作数是字符串，则将另一个操作数转换为字符串，再将两个字符串拼接起来。</p></li>
+<li><p>如果有一个操作数是对象、数值或布尔值，则调用它们的toString()方法取得相应的字符串，然后再应用前面关于字符串的规则。对于null和undefined，则分别调用函数String()取得字符串”null”和”undefined”。  </p></li></ul></li>
+<li><p>减法操作符，（-）</p>
+
+<ul>
+<li><p>如果两个操作数都是数值，则执行常规的算术减法并返回结果。</p></li>
+<li><p>正无穷减正无穷的结果是NaN，负无穷减负无穷的结果是负无穷。</p></li>
+<li><p>零减零的结果是零。</p></li>
+<li><p>如果有一个操作数是字符串、布尔值、null、或undefined，则先在后台调用Number()函数将其转换为数值，然后在根据前面的规则执行减法运算。如转换的是NaN，则减法的结果就是NaN。</p></li>
+<li><p>如果有一个操作数是对象的话，则调用对象的valueOf()方法取得表示该对象的数值。如果得到的是NaN，则减法的结果就是NaN。如果对象没有valueOf()方法，则调用其的toString()方法并将得到字符串转换为数值。</p></li></ul></li>
+</ul>
+
+
+
+<h4 id="关系操作符">关系操作符</h4>
+
+<p>小于(&lt;)、大于(&gt;)、小于等于（&lt;=）和大于等于（&gt;=）这几个关系操作符用于对两个值的比较，并返回一个布尔值。</p>
+
+<ul><li><p>如何两个操作数都是数值，则执行数值比较。</p></li>
+<li><p>如果两个都是字符串，则比较两个字符串对应的字符编码值。</p></li>
+<li><p>如果有一个操作数是数值，则将另一个操作数转换为数值再执行数值比较。</p></li>
+<li><p>如果有一个操作数是对象，则先调用这个对象的valueOf（）方法，用得到的结果按照前面的规则进行比较，如没有valueOf（）方法，则调用toString（）方法，并用得到的结果根据前面的规则执行比较。</p></li>
+</ul>
+
+
+
+<h4 id="相等操作符">相等操作符</h4>
+
+<p><strong>相等</strong>和<strong>不相等-</strong>–先转换再比较 <br>
+<strong>全等</strong>和<strong>不全等</strong>—仅比较不转换  </p>
+
+<ul><li><p>相等操作符由两个等号（==）表示，如果两个操作数相等，则返回true。而不相等操作符由叹号后跟等号（！=）表示，如果两个操作数不相等，则返回true。这两个操作符都会先转换操作数（俗称强制转型），然后再比较它们的相等性。  </p>
+
+<ul>
+<li><p>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值—false转换为0，而true转换为1；</p></li>
+<li><p>如果一个操作数是字符串，另一个操作数是数值，在比较相等性之前先把字符串转换为数值；</p></li>
+<li><p>如果一个操作数是对象，另一个操作数不是，则调用对象的valueOf（）方法，用得到的基本类型按照前面的规则进行比较；</p></li>
+<li><p>null和undefined是相等的；</p></li>
+<li><p>要比较相等性之前，不能将null和undefined转换成其他任何值。</p></li>
+<li><p>NaN和任何类型的值都不相等，包括它自己。</p></li>
+<li><p>如果两个操作数都是对象，则比较它们是不是同一个对象。  </p></li></ul></li>
+<li><p>全等和不全等 <br>
+全等和不全等，除了不转换操作数之外，其比较规则与相等和不相等一样。</p>
+
+<ul>
+<li><p>全等操作符由三个等号（===）表示。</p></li>
+<li><p>不全等操作符由一个叹号和三个等号（！===）表示。</p></li>
+<li><p>需要注意的一点null和undefined是相等的，但不是全等的，因为它们不是一个类型。</p></li></ul></li>
+</ul>
+
+
+
+<h4 id="条件操作符">条件操作符</h4>
+
+<p>ECMAScript的条件操作符与Java的条件操作符语法相同。</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> variable = boolean_expression ? true_value : false_value;
+</div></code></pre>
+
+
+
+<h4 id="赋值操作符">赋值操作符</h4>
+
+<p>简单的赋值操作符由等于号（=）表示，其作用就是把右侧的值赋给左侧的变量。除此之外还可以在等于号前面添加 加减乘除、取模操作符或位操作符完成复合操作。</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> num=<span class="hljs-number">10</span>;
+</div><div class="hljs-line">num +=<span class="hljs-number">10</span>;   <span class="hljs-comment">//等同于num = num +10</span>
+</div></code></pre>
+
+
+
+<h4 id="逗号操作符">逗号操作符</h4>
+
+<p>逗号操作符多用于声明多个变量；除此之外逗号操作符还可以用于赋值。在用于赋值时，逗号操作符总会返回表达式的最后一项。</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">var</span> num1=<span class="hljs-number">1</span>,num2=<span class="hljs-number">2</span>,num3=<span class="hljs-number">3</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> num = (<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>);  <span class="hljs-comment">//num的值为0</span>
+</div></code></pre></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck24px06t0005u4q6pnt2sg4u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/21/红宝书阅读笔记ch3-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/红宝书阅读笔记ch3-2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/21/红宝书阅读笔记ch3-1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/11/红宝书阅读笔记ch2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/25/红宝书阅读笔记ch1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
