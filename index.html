@@ -62,6 +62,159 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-红宝书阅读笔记ch3-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/06/红宝书阅读笔记ch3-3/" class="article-date">
+  <time datetime="2019-11-06T12:44:00.969Z" itemprop="datePublished">2019-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch3-3</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style></style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch3-3">红宝书阅读笔记ch3-3</h1>
+
+
+
+<h3 id="语句">语句</h3>
+
+<p>由于笔者对if、do-while、while、for、break、continue、switch这些语句已经很熟悉了，这里就不在这里花跟更多的功夫去记了，如果有不了解这些流程控制语句的读者可前往：<a href="https://www.w3school.com.cn" target="_blank">w3schoo</a>、<a href="http://www.runoob.com" target="_blank">菜鸟教程网</a> 了解相应的语句。 <br>
+接下来笔者会记一下以往不熟悉的语句，如label、with等。</p>
+
+<ul><li><p>for-in语句，是一种精准的迭代语句，可以用来枚举对象的属性。 <br>
+语法： <br>
+for (property in expression) statement <br>
+示例：</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> proName <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span>) {
+</div><div class="hljs-line">        <span class="hljs-built_in">document</span>.writeln(proName);
+</div><div class="hljs-line">    }
+</div></code></pre>
+
+<p>注意：由于ECMAScript对象的属性没有顺序，因此对于for-in语句循环输出的语句是不可预测的，虽然每个属性都会返回一次，但返回的先后顺序因浏览器而异。如果迭代对象的变量值为null或undefined，for-in语句会抛出错误，在 ES5以后，对于这种情况不再抛出错误而是不再执行循环体。为了保证兼容性，建议在使用for-in语句以前，先检测该对象的值是不是null或undefined。  </p>
+
+<ul><li><p>使用label语句可以在代码中添加标签，以便将来使用。 <br>
+语法： <br>
+label: statement <br>
+举例:  </p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> num=<span class="hljs-number">0</span>;
+</div><div class="hljs-line">outermost:
+</div><div class="hljs-line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>;i++){
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">10</span>; j++){
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(i==<span class="hljs-number">5</span> &amp;&amp; j==<span class="hljs-number">5</span>){
+</div><div class="hljs-line">            <span class="hljs-keyword">break</span> outermost;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        num++;  
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(num);       <span class="hljs-comment">//55</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> num=<span class="hljs-number">0</span>;
+</div><div class="hljs-line">outermost:
+</div><div class="hljs-line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>;i++){
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">10</span>; j++){
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(i==<span class="hljs-number">5</span> &amp;&amp; j==<span class="hljs-number">5</span>){
+</div><div class="hljs-line">            <span class="hljs-keyword">continue</span> outermost;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        num++;  
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(num);       <span class="hljs-comment">//95</span>
+</div></code></pre>
+
+<p>标签由break或continue语句引用。加标签的语句一般都是要与for语句等循环语句使用。</p>
+
+<ul><li><p>with语句的作用是将代码的作用域设置到一个特定的对象中。 <br>
+语法： <br>
+with (expression) statement ; <br>
+定义with语句的主要目的是为了简化编写多次编写同一个对象的工作，举例：  </p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> qs=location.search.substring(<span class="hljs-number">1</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> hostName=location.hostname;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> url=location.href;
+</div><div class="hljs-line"><span class="hljs-comment">//上面的代码都包含location对象，使用with语句改写如下：</span>
+</div><div class="hljs-line"><span class="hljs-keyword">with</span> (location){
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> qs=search.substring();
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> hostName=hostname;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> url=href;
+</div><div class="hljs-line">    }
+</div></code></pre>
+
+<blockquote>
+  <p>注意：大量使用with语句会导致性能下降，同时也给代码调试带来不便，因此在开发大型应用程序时，不建议使用with语句。同时严格模式下不允许使用with语句。</p>
+</blockquote>
+
+
+
+<h3 id="函数">函数</h3>
+
+<ol><li rel="1"><p>通过函数可以封装任意多条语句，而且可以在任何地方、任何时候调用执行。</p></li>
+<li rel="2"><p>要么让函数始终都返回一个值，要么永远都不要返回值。</p></li>
+<li rel="3"><p>ECMAScript中参数在内部是用一个数组来表示，在函数体内通过arguments对象来访问这个参数数组，从而获取传给函数的每一个参数。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHi</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    alert(<span class="hljs-string">"Hello "</span>+<span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]+<span class="hljs-string">","</span>+<span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]);
+</div><div class="hljs-line">    alert(<span class="hljs-built_in">arguments</span>.length); <span class="hljs-comment">//参数数组的长度 </span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doAdd</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length==<span class="hljs-number">1</span>){
+</div><div class="hljs-line">                    alert(<span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]+<span class="hljs-number">10</span>);
+</div><div class="hljs-line">                }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length==<span class="hljs-number">2</span>){
+</div><div class="hljs-line">                    alert(<span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]+<span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]);
+</div><div class="hljs-line">                }
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">            doAdd(<span class="hljs-number">10</span>); <span class="hljs-comment">//20</span>
+</div><div class="hljs-line">            doAdd(<span class="hljs-number">10</span>,<span class="hljs-number">30</span>); <span class="hljs-comment">//40</span>
+</div><div class="hljs-line">            <span class="hljs-comment">//arguments对象可以和命名参数一起使用</span>
+</div><div class="hljs-line">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doAdd</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length==<span class="hljs-number">1</span>){
+</div><div class="hljs-line">                    alert(<span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]+<span class="hljs-number">10</span>);
+</div><div class="hljs-line">                }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length==<span class="hljs-number">2</span>){
+</div><div class="hljs-line">                    alert(num1+<span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]);
+</div><div class="hljs-line">                }
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">            doAdd(<span class="hljs-number">10</span>);
+</div><div class="hljs-line">            doAdd(<span class="hljs-number">10</span>,<span class="hljs-number">30</span>);
+</div></code></pre>
+
+<ol start="4"><li rel="4"><p>ECMAScript因为没有函数签名所以做不到真正的重载，如果在ECMAScript定义了两个名字相同的函数，则改名字属于后定义的函数。</p></li>
+<li rel="5"><p>通过检查传入函数中参数的类型和数量并做出不同的反应可以模仿方法的重载。</p></li>
+</ol></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck2naggil00023gq6imul4dbw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-freeCodeCamp 前端开发课程 220（Profile Lookup）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" class="article-date">
@@ -222,7 +375,7 @@ btw 我的解法在.hasOwnProperty 不行，记录下来下次再看看。</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck24px0180001u4q6zshz3dnk" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck2naggii00013gq6630di9u9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -450,7 +603,7 @@ ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck24px06t0005u4q6pnt2sg4u" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck2naggjg00063gq65l30y260" class="article-share-link">Share</a>
       
       
     </footer>
@@ -702,7 +855,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck24px01p0003u4q6j8fx5ne0" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck2naggix00043gq6vmc95cpu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -867,7 +1020,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck24px0600004u4q66buxu9ka" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck2naggje00053gq61dhjxib0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -922,7 +1075,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck24px01a0002u4q6tlhtg2db" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck2naggiw00033gq6ik3ce7zx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -971,7 +1124,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck24px00t0000u4q6sua24yep" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck2naggfi00003gq66ipu7axb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -999,7 +1152,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
     </div>
   </div>
 
@@ -1010,6 +1163,10 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/06/红宝书阅读笔记ch3-3/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/">(no title)</a>
@@ -1025,10 +1182,6 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
         
           <li>
             <a href="/2019/09/11/红宝书阅读笔记ch2/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/25/红宝书阅读笔记ch1/">(no title)</a>
           </li>
         
       </ul>
