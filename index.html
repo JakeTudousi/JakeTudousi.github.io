@@ -62,6 +62,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-红宝书阅读笔记ch4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/07/红宝书阅读笔记ch4/" class="article-date">
+  <time datetime="2019-11-07T07:04:15.065Z" itemprop="datePublished">2019-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch4</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch4">红宝书阅读笔记ch4</h1>
+
+<h3 id="基本类型和引用类型的值">基本类型和引用类型的值</h3>
+
+<ul><li><p>基本类型值指的是简单的数据段，而引用类型值可能是由多个值构成的对象。</p></li>
+<li><p>基本类型值是按值访问的，因为是可以操作再变量中实际的值，引用类型的值是保存内存中的对象，JavaScript不允许直接访问内存中的位置，在操作对象时，实际上是在操作对象的引用而不是实际的对象，因此，引用类型的值是按引用访问的。</p></li>
+<li><p>字符串是基本类型的，而不是引用类型的。</p></li>
+<li><p>对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。对于基本类型的值不能添加属性，尽管这样做不会导致任何错误。</p></li>
+<li><p>对于复制变量值，基本类型的值复制的是值，而引用类型复制的是这个值的指针，两个变量引用的是同一个对象，改变其中一个的值，就会影响另一个值。</p></li>
+<li><p>ECMAScript中所有的函数的参数都是按值传递的。基本类型值的传递如同基本类型变量的复制一样，而引用类型值的传递，则如同引用类型变量的复制一样。对于访问变量有按值和引用两种方式，而参数只能按值传递，这一点可以归功于函数的执行环境和作用域。</p></li>
+<li><p>typeOf 操作符用于检测基本数据类型，而instanceof 操作符可以检测某个值是不是对象，是什么类型的对象。</p></li>
+</ul>
+
+<h3 id="执行环境和作用域">执行环境和作用域</h3>
+
+<ul><li><p>每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。全局执行环境是最外围的一个执行环境，在Web浏览器中，全局执行环境被认为是Window对象。</p></li>
+<li><p>作用域链，是代码在一个环境中执行时为变量对象创建的，作用是保证对执行环境有权访问的所有变量和函数的有序访问，即里层的执行环境可以访问外部执行环境的变量和函数，而外部的执行环境无权访问里层的执行环境。全局执行环境是作用域链的最后一个对象。当前环境是作用域的前端。</p></li>
+<li><p>函数参数也被当做变量对待，访问规则和执行环境中的其他变量相同（即arguments数组）。</p></li>
+<li><p>延长作用域链的方法有两个:</p>
+
+<ul>
+<li><p>try-catch语句的catch块；</p></li>
+<li><p>with语句。</p></li></ul></li>
+<li><p>上述的两个语句都会在作用域的前端添加一个变量对象。对with语句来说，会将指定对象添加到作用域中。对catch语句来说，会创建一个新的变量对象，其中包含的是抛出的错误对象的声明。</p></li>
+<li><p>JavaScript 没有块即作用域，在其他类C的语言中，有花括号封闭的的代码都有自己的作用域。（如if、for等语句）在这些有花括号的语句中创建的变量会在语句结束后添加到当前的执行环境中，如for循环中创建的i 会在循环结束后添加到当前的执行环境中，这一点需要注意。</p></li>
+<li><p>使用var声明的变量会自动被添加到最近的环境中。在函数内部，最接近的环境就是函数的局部环境；在with语句中，最接近的环境是函数环境。如果初始化变量时没有使用var声明，该变量会被添加到全局环境中。</p></li>
+<li><p>标识符，就是声明变量的变量名，在某个环境中为了读取或写入而引用一个标识符是，必须通过逐级搜索标识符才能确定标识符实际代表什么，如果在局部环境中没有找到该变量名则继续沿用作用链向上搜索，知道全局环境，如果在全局环境中就证明没有申声明这个该变量。如果在某个局部环境中找到了，就不继续向上搜索了。也可以认为在局部环境中存在着同名的标识符，就不会使用父环境中的标识符。</p></li>
+</ul>
+
+<h3 id="垃圾收集">垃圾收集</h3>
+
+<ul><li><p>垃圾收集有两种方式，标识清除和引用记数两种方式，现常用的是标识清除。</p></li>
+</ul></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/11/07/红宝书阅读笔记ch4/" data-id="ck2od8y9e00014kq69c28vvci" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-红宝书阅读笔记ch3-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/06/红宝书阅读笔记ch3-3/" class="article-date">
@@ -205,7 +272,7 @@ with (expression) statement ; <br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck2naggil00023gq6imul4dbw" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck2od8y9y00044kq6g39xrp3f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -375,7 +442,7 @@ btw 我的解法在.hasOwnProperty 不行，记录下来下次再看看。</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck2naggii00013gq6630di9u9" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck2od8y9w00034kq6k0fbnfh3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -603,7 +670,7 @@ ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck2naggjg00063gq65l30y260" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck2od8ya400054kq67ngss8k3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -855,7 +922,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck2naggix00043gq6vmc95cpu" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck2od8ya600064kq6f3p5zxvj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1020,7 +1087,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck2naggje00053gq61dhjxib0" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck2od8yaa00074kq6u56qmori" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1075,7 +1142,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck2naggiw00033gq6ik3ce7zx" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck2od8y9t00024kq6xyjcwvsm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1124,7 +1191,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck2naggfi00003gq66ipu7axb" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck2od8y9100004kq60sg6cgi2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1165,6 +1232,10 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       <ul>
         
           <li>
+            <a href="/2019/11/07/红宝书阅读笔记ch4/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/06/红宝书阅读笔记ch3-3/">(no title)</a>
           </li>
         
@@ -1178,10 +1249,6 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
         
           <li>
             <a href="/2019/09/21/红宝书阅读笔记ch3-1/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/11/红宝书阅读笔记ch2/">(no title)</a>
           </li>
         
       </ul>
