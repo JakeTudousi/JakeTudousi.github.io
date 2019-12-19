@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ian&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="红宝书阅读笔记ch5-2 .note-content  {font-family: &quot;Helvetica Neue&quot;, Arial, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimSun, Song, sans-serif;}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ian&#39;s blog">
+<meta property="og:url" content="http://www.1n40.cn/2019/12/16/红宝书阅读笔记ch5-2/index.html">
+<meta property="og:site_name" content="Ian&#39;s blog">
+<meta property="og:description" content="红宝书阅读笔记ch5-2 .note-content  {font-family: &quot;Helvetica Neue&quot;, Arial, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimSun, Song, sans-serif;}">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-19T13:25:34.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ian&#39;s blog">
+<meta name="twitter:description" content="红宝书阅读笔记ch5-2 .note-content  {font-family: &quot;Helvetica Neue&quot;, Arial, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimSun, Song, sans-serif;}">
+  
+    <link rel="alternate" href="/atom.xml" title="Ian&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ian&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.1n40.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-红宝书阅读笔记ch5-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/16/红宝书阅读笔记ch5-2/" class="article-date">
+  <time datetime="2019-12-16T14:06:01.817Z" itemprop="datePublished">2019-12-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch5-2</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch5-2">红宝书阅读笔记ch5-2</h1>
+
+<p>Date类型、RegExp类型、Function类型、基本包装类型</p>
+
+
+
+<h2 id="date类型">Date类型</h2>
+
+<ol><li rel="1"><p>Date类型保存的时间精度在1970年之前和之后的一亿年。</p></li>
+<li rel="2"><p>获取当前时间只要new一个Date就行了。</p></li>
+<li rel="3"><p>根据指定日期和时间来创建日期对象的方法有三种：</p>
+
+<ol>
+<li rel="1"><p>传入表示该日期的毫秒数（从1970到该日期所经过的毫秒数） 。</p></li>
+<li rel="2"><p>Date.prese( ) ，传入 一个表示日期的字符串，然后该方法尝试返回一个相应日期的毫秒数。</p></li>
+<li rel="3"><p>Date.UTC() ，传入一连串表示时间数字，返回表示日期的毫秒数。</p></li></ol></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> now=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-comment">//当前时间</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> oneSecond=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1000</span>); <span class="hljs-comment">//一秒</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> prese=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.parse(<span class="hljs-string">"11/9/2019"</span>));
+</div><div class="hljs-line">        <span class="hljs-comment">//var prese=new Date("11/9/2019"); 和上面那句一毛一样</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> utc=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.UTC(<span class="hljs-number">2005</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">17</span>,<span class="hljs-number">55</span>,<span class="hljs-number">55</span>));
+</div><div class="hljs-line">        <span class="hljs-comment">//var utc=new Date(2005,4,5,17,55,55);</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(<span class="hljs-string">"当前时间："</span>+now);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"Date.parse(\"11/9/2019\")："</span>+prese);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"Date.UTC(2005,4,5,17,55,55)："</span>+utc);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"一千毫秒"</span>+oneSecond);
+</div></code></pre>
+
+<ol start="4"><li rel="4"><p>Date.valueOf( ) ，返回日期的毫秒数，因此可以用来比较日期值。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> date1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2007</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);          <span class="hljs-comment">//January 1, 2007</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> date2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2007</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);          <span class="hljs-comment">//February 1, 2007</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(date1 &lt; date2);  <span class="hljs-comment">//true</span>
+</div><div class="hljs-line">        alert(date1 &gt; date2);  <span class="hljs-comment">//false</span>
+</div></code></pre>
+
+<ol start="5"><li rel="5"><p>日期格式化方法</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> dateString =<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();       <span class="hljs-comment">//显示星期几、月、日、年</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> timeString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();        <span class="hljs-comment">//显示时、分、秒和时区</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> localeDateString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();  <span class="hljs-comment">//本地区的格式显示显示星期几、月、日、年</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> utcString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();         <span class="hljs-comment">//完整的UTC日期</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(<span class="hljs-string">"dateString "</span>+dateString.toDateString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"timeString "</span>+dateString.toTimeString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"localeDateString "</span>+dateString.toLocaleDateString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"utcString "</span>+dateString.toUTCString());
+</div></code></pre>
+
+<ol start="6"><li rel="6"><p>日期/时间的组件方法 <br>
+都是取得和设置日期中值的方法，还有很多方法没列，可上 MDN了解。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> time=now.getTime();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> fullYear=now.getFullYear();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> month=now.getMonth();
+</div></code></pre>
+
+
+
+<h2 id="regexp-类型">RegExp 类型</h2>
+
+<ol start="1"><li rel="1"><p>语法 <br>
+pattern（模式） ,是简单或复杂的正则表达式 <br>
+flags（标识），表示正则表达式的行为： <br>
+g：全局模式； <br>
+i：不区分大小写； <br>
+m:表示多行。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">var</span> expression = <span class="hljs-regexp">/ pattern /</span> flags
+</div></code></pre>
+
+<ol start="2"><li rel="2"><p>pattern 中使用的所有元字符都必须转义。 <br>
+() [] {} \ ^ $ | ? * + .  </p></li>
+<li rel="3"><p>RegExp构造函数 <br>
+pattern1和pattern2完全等价，但由于RegExp的参数是字符串，所以在使用元字符时都必须双重转义。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern1=<span class="hljs-regexp">/ [bc]at /i</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern2=<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"[bc]at"</span>,<span class="hljs-string">"i"</span>);
+</div><div class="hljs-line">    <span class="hljs-comment">//匹配 [bc]at ,字面量是 / \[bc\]at /</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern3=<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"\\[bc\\]at"</span>,<span class="hljs-string">"i"</span>);
+</div></code></pre>
+
+<ol start="4"><li rel="4"><p>RegExp的实例属性 <br>
+global：布尔值，表示是否设置了g标识，相似的还有ignoreCase、multiline，分别表示i、m标识。 <br>
+source：正则表达式的字符串表示 <br>
+lastIndex：整数，表示开始搜索下一个匹配项的字符位置，从0算起。</p></li>
+<li rel="5"><p>RegExp实例方法</p>
+
+<ol>
+<li rel="1"><p>exec( ) ,参数是一个要匹配模式的字符串，没有匹配项时返回null，有匹配项时返回一个数组，第一项是与整个模式匹配的字符串， 第二项是与 RegExp的实例 的第 2 个子表达式相匹配的文本（如果有的话），以此类推。除了数组元素和 length 属性之外，exec() 方法还返回两个属性。index 属性声明的是匹配文本的第一个字符的位置。input 属性则存放的是被检索的字符串 string。  <br>
+对于exec( ) 方法而言，即是在模式中设置全局标识（g），它每次也只会返回一个匹配项。 <br>
+在不设置全局标志的情况下，在同一个字符串上多次调用exec( ) 将始终返回第一个匹配项的信息，而在设置全局标识的情况下，每次调用exec( ) 则都会在字符串中继续查找新匹配项。</p></li>
+<li rel="2"><p>test( ) ，接收一个字符串参数，在模式与参数匹配的情况下返回true；否则返回false。</p></li></ol></li>
+<li rel="6"><p>RegExp构造函数属性 <br>
+RegExp构造函数包含一些属性（你可以认为这是RegExp类型的 “静态属性”）。这些属性适用与作用域中的所有正则表达式。这些属性分别有自己的长属性名和短属性名。</p></li>
+</ol>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">长属性名</td>  <td align="center">短属性名</td>  <td align="center">说明</td></tr><tr>  <td align="center">input</td>  <td align="center">$_</td>  <td align="center">最近一次要匹配的字符串</td></tr><tr>  <td align="center">lastMatch</td>  <td align="center">$&amp;</td>  <td align="center">最近一次匹配项</td></tr><tr>  <td align="center">lastParen</td>  <td align="center">$+</td>  <td align="center">最近一次匹配的捕获组</td></tr><tr>  <td align="center">leftContext</td>  <td align="center">$`</td>  <td align="center">input字符串中lastMatch之前的文本</td></tr><tr>  <td align="center">multiline</td>  <td align="center">$*</td>  <td align="center">布尔值，表示是否所有的表达式都使用多行模式</td></tr><tr>  <td align="center">rightContext</td>  <td align="center">$’</td>  <td align="center">input字符串中lastMatch之后的文本</td></tr></tbody></table>
+
+
+
+<h2 id="function-类型">Function 类型</h2>
+
+<ol><li rel="1"><p>函数实际上是一个对象。（<strong>函数是对象，函数名是指针</strong>）</p></li>
+<li rel="2"><p>函数的三种语法</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-comment">//函数声明语法</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//函数表达式</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> sum=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//Function构造函数</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//不推荐这种写法，不过它可以帮你理解 “函数是对象，函数名是指针” 的概念。</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> sum=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">"num1"</span>,<span class="hljs-string">"num2"</span>,<span class="hljs-string">"return num1+num2"</span>);
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<ol start="3"><li rel="3"><p>每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。</p></li>
+<li rel="4"><p>函数名实际上是一个指向函数对象的指针。</p></li>
+<li rel="5"><p>JavaScript 没有重载。</p></li>
+<li rel="6"><p><strong>函数声明在代码执行的顺序中优于函数表达式</strong>，原因是在代码开始执行之前，解析器就已经通过一个名为函数声明提升的过程，读取并将声明添加到执行环境中。对代码求值时，JavaScript 引擎在第一遍会声明函数并将它们放到源代码树的顶部。所以，即使声明函数的代码在调用它的代码后面，JavaScript 引擎也能把声明函数提示到顶部。</p></li>
+<li rel="7"><p>解析器在向执行环境中加载数据时，解析器会率先读取函数声明，并使其在执行任何代码之前可以访问；至于函数表达式，则必须等到解析器到它所在的代码行，才会真正被解释执行。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">            <span class="hljs-comment">//函数声明,可以执行</span>
+</div><div class="hljs-line">            alert(sum(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>));
+</div><div class="hljs-line">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">            <span class="hljs-comment">//函数表达式，报错</span>
+</div><div class="hljs-line">            alert(sum(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>));
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> sum=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">            }
+</div></code></pre>
+
+<ol start="8"><li rel="8"><p>要访问函数的指针而不执行函数的话，必须去掉函数名后面那对圆括号。</p></li>
+<li rel="9"><p>因为函数名本身就是变量，所以函数可以作为值来使用。第一你可以像传递参数一样把一个函数传递给另一个函数，第二你可以将函数作为另一个函数的结果返回。</p></li>
+<li rel="10"><p>函数内部的属性</p>
+
+<ol>
+<li rel="1"><p>arguments.callee 该属性是一个指针，指向 拥有arguments对象的函数。（现在已逐渐淘汰，尽量不要用）</p></li>
+<li rel="2"><p>arguments 是一个类数组的对象。</p></li>
+<li rel="3"><p>this ，this引用的是函数执行的环境对象，当在网页的全局作用域中调用函数时this对象引用的就是window。</p></li>
+<li rel="4"><p>caller ，这个属性中保存着调用当前函数的引用，如果是在全局作用域中调用当前函数，它的值为null。另外也可以通过 arguments.callee.caller 来访问该属性。</p></li></ol></li>
+<li rel="11"><p>函数属性和方法</p>
+
+<ol>
+<li rel="1"><p>function.object.length，表示函数希望接收的命名参数的个数。</p></li>
+<li rel="2"><p>prototype ，引用类型的原型，用以保存引用类型实例方法。（之后的JavaScript的面向对象会重点提到，这里不做过多介绍。）</p></li>
+<li rel="3"><p>apply( ) 和 call( ) 的用途都是在特定的作用域中调用函数，也可以理解为扩充函数作用域的方法。它们的区别只是在参数的传递上。</p></li>
+<li rel="4"><p>bind( ) ,这个方法会创建一个函数的实例，其this值会被绑定到传给bind( )函数的值。</p></li></ol></li>
+</ol>
+
+
+
+<h2 id="基本包装类型">基本包装类型</h2>
+
+<ol><li rel="1"><p>基本包装类型即Boolean、Number和String。可以理解为Object 对布尔值、数值、字符串的包装类型。</p></li>
+<li rel="2"><p>Number 的方法</p>
+
+<ol>
+<li rel="1"><p>Number.toFixed( ) ，按照指定的小数位返回数值的字符串表示，适用于处理货币值。</p></li>
+<li rel="2"><p>Number.toExponetial( ) ，以指数表示法返回数值的字符串形式。</p></li>
+<li rel="3"><p>Number.toPrecision( ) ，根据表示数值所有数字的位数的参数，来返回不同的数值表示法。</p></li></ol></li>
+<li rel="3"><p>String 类型</p>
+
+<ol>
+<li rel="1"><p>String.length ，返回字符串的字符数。</p></li>
+<li rel="2"><p>String.charAt( ) ，参数是字符的length值，返回指定位置的字符。（实际上是字符串，因为JS没字符类型）</p></li>
+<li rel="3"><p>String.charCodeAt( ) ，参数是字符的length值，返回指定位置的字符编码。</p></li>
+<li rel="4"><p>String.concat( ) ，连接两个字符串。</p></li>
+<li rel="5"><p>slicce( )、substr( )、substring( ) ，基于子字符串创建新的字符串的方法。</p></li>
+<li rel="6"><p>indexOf( )、lastIndexOf( ) ，搜索给定的子字符串，返回子字符串的位置，一个从前往后，一个从后往前。</p></li>
+<li rel="7"><p>trim( ) ，创建一个字符串的副本，删除前置和后缀的所有空格.</p></li>
+<li rel="8"><p>字符串大小写装换方法，toLowerCase( ) 、toLocalLowerCase( ) 、toUpperCase( ) 、toLocalUpperCase( ) 。</p></li>
+<li rel="9"><p>match( )，参数是一个正则表达式或RegExp对象，返回匹配模式的数组。</p></li>
+<li rel="10"><p>search( )，参数是一个正则表达式或RegExp对象，返回第一个匹配项的索引，没找到返回-1.</p></li>
+<li rel="11"><p>replace( ),参数是第一个RegExp对象或是一个字符串（非正则表达式），第二个是用以替换的字符串或者是一个函数。</p></li>
+<li rel="12"><p>split( )，基于指定的分隔符将一个字符串分割成多个字符串，并将结果放在一个数组里。第一个参数是分隔符，也可以是一个RegExp对象，第二个参数是数组的长度。</p></li>
+<li rel="13"><p>String.localeCompare(str )，用于比较两个字符串，返回数字-1，0，1 。零是两个字符串相等，正一和负一表示参数的首字母在字符串之前或之后。这个方法不区分大小写。  </p></li></ol></li>
+</ol></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/12/16/红宝书阅读笔记ch5-2/" data-id="ck4crf0h70006n4q6qp50hwew" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/29/红宝书阅读笔记ch5-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/16/红宝书阅读笔记ch5-2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/红宝书阅读笔记ch5-1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/07/红宝书阅读笔记ch4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/红宝书阅读笔记ch3-3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -62,6 +62,253 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-红宝书阅读笔记ch5-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/16/红宝书阅读笔记ch5-2/" class="article-date">
+  <time datetime="2019-12-16T14:06:01.817Z" itemprop="datePublished">2019-12-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch5-2</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch5-2">红宝书阅读笔记ch5-2</h1>
+
+<p>Date类型、RegExp类型、Function类型、基本包装类型</p>
+
+
+
+<h2 id="date类型">Date类型</h2>
+
+<ol><li rel="1"><p>Date类型保存的时间精度在1970年之前和之后的一亿年。</p></li>
+<li rel="2"><p>获取当前时间只要new一个Date就行了。</p></li>
+<li rel="3"><p>根据指定日期和时间来创建日期对象的方法有三种：</p>
+
+<ol>
+<li rel="1"><p>传入表示该日期的毫秒数（从1970到该日期所经过的毫秒数） 。</p></li>
+<li rel="2"><p>Date.prese( ) ，传入 一个表示日期的字符串，然后该方法尝试返回一个相应日期的毫秒数。</p></li>
+<li rel="3"><p>Date.UTC() ，传入一连串表示时间数字，返回表示日期的毫秒数。</p></li></ol></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> now=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-comment">//当前时间</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> oneSecond=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1000</span>); <span class="hljs-comment">//一秒</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> prese=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.parse(<span class="hljs-string">"11/9/2019"</span>));
+</div><div class="hljs-line">        <span class="hljs-comment">//var prese=new Date("11/9/2019"); 和上面那句一毛一样</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> utc=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.UTC(<span class="hljs-number">2005</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">17</span>,<span class="hljs-number">55</span>,<span class="hljs-number">55</span>));
+</div><div class="hljs-line">        <span class="hljs-comment">//var utc=new Date(2005,4,5,17,55,55);</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(<span class="hljs-string">"当前时间："</span>+now);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"Date.parse(\"11/9/2019\")："</span>+prese);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"Date.UTC(2005,4,5,17,55,55)："</span>+utc);
+</div><div class="hljs-line">        alert(<span class="hljs-string">"一千毫秒"</span>+oneSecond);
+</div></code></pre>
+
+<ol start="4"><li rel="4"><p>Date.valueOf( ) ，返回日期的毫秒数，因此可以用来比较日期值。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> date1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2007</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);          <span class="hljs-comment">//January 1, 2007</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> date2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2007</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);          <span class="hljs-comment">//February 1, 2007</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(date1 &lt; date2);  <span class="hljs-comment">//true</span>
+</div><div class="hljs-line">        alert(date1 &gt; date2);  <span class="hljs-comment">//false</span>
+</div></code></pre>
+
+<ol start="5"><li rel="5"><p>日期格式化方法</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> dateString =<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();       <span class="hljs-comment">//显示星期几、月、日、年</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> timeString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();        <span class="hljs-comment">//显示时、分、秒和时区</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> localeDateString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();  <span class="hljs-comment">//本地区的格式显示显示星期几、月、日、年</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> utcString=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();         <span class="hljs-comment">//完整的UTC日期</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">        alert(<span class="hljs-string">"dateString "</span>+dateString.toDateString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"timeString "</span>+dateString.toTimeString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"localeDateString "</span>+dateString.toLocaleDateString());
+</div><div class="hljs-line">        alert(<span class="hljs-string">"utcString "</span>+dateString.toUTCString());
+</div></code></pre>
+
+<ol start="6"><li rel="6"><p>日期/时间的组件方法 <br>
+都是取得和设置日期中值的方法，还有很多方法没列，可上 MDN了解。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> time=now.getTime();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> fullYear=now.getFullYear();
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> month=now.getMonth();
+</div></code></pre>
+
+
+
+<h2 id="regexp-类型">RegExp 类型</h2>
+
+<ol start="1"><li rel="1"><p>语法 <br>
+pattern（模式） ,是简单或复杂的正则表达式 <br>
+flags（标识），表示正则表达式的行为： <br>
+g：全局模式； <br>
+i：不区分大小写； <br>
+m:表示多行。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">var</span> expression = <span class="hljs-regexp">/ pattern /</span> flags
+</div></code></pre>
+
+<ol start="2"><li rel="2"><p>pattern 中使用的所有元字符都必须转义。 <br>
+() [] {} \ ^ $ | ? * + .  </p></li>
+<li rel="3"><p>RegExp构造函数 <br>
+pattern1和pattern2完全等价，但由于RegExp的参数是字符串，所以在使用元字符时都必须双重转义。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern1=<span class="hljs-regexp">/ [bc]at /i</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern2=<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"[bc]at"</span>,<span class="hljs-string">"i"</span>);
+</div><div class="hljs-line">    <span class="hljs-comment">//匹配 [bc]at ,字面量是 / \[bc\]at /</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> pattern3=<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"\\[bc\\]at"</span>,<span class="hljs-string">"i"</span>);
+</div></code></pre>
+
+<ol start="4"><li rel="4"><p>RegExp的实例属性 <br>
+global：布尔值，表示是否设置了g标识，相似的还有ignoreCase、multiline，分别表示i、m标识。 <br>
+source：正则表达式的字符串表示 <br>
+lastIndex：整数，表示开始搜索下一个匹配项的字符位置，从0算起。</p></li>
+<li rel="5"><p>RegExp实例方法</p>
+
+<ol>
+<li rel="1"><p>exec( ) ,参数是一个要匹配模式的字符串，没有匹配项时返回null，有匹配项时返回一个数组，第一项是与整个模式匹配的字符串， 第二项是与 RegExp的实例 的第 2 个子表达式相匹配的文本（如果有的话），以此类推。除了数组元素和 length 属性之外，exec() 方法还返回两个属性。index 属性声明的是匹配文本的第一个字符的位置。input 属性则存放的是被检索的字符串 string。  <br>
+对于exec( ) 方法而言，即是在模式中设置全局标识（g），它每次也只会返回一个匹配项。 <br>
+在不设置全局标志的情况下，在同一个字符串上多次调用exec( ) 将始终返回第一个匹配项的信息，而在设置全局标识的情况下，每次调用exec( ) 则都会在字符串中继续查找新匹配项。</p></li>
+<li rel="2"><p>test( ) ，接收一个字符串参数，在模式与参数匹配的情况下返回true；否则返回false。</p></li></ol></li>
+<li rel="6"><p>RegExp构造函数属性 <br>
+RegExp构造函数包含一些属性（你可以认为这是RegExp类型的 “静态属性”）。这些属性适用与作用域中的所有正则表达式。这些属性分别有自己的长属性名和短属性名。</p></li>
+</ol>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">长属性名</td>  <td align="center">短属性名</td>  <td align="center">说明</td></tr><tr>  <td align="center">input</td>  <td align="center">$_</td>  <td align="center">最近一次要匹配的字符串</td></tr><tr>  <td align="center">lastMatch</td>  <td align="center">$&amp;</td>  <td align="center">最近一次匹配项</td></tr><tr>  <td align="center">lastParen</td>  <td align="center">$+</td>  <td align="center">最近一次匹配的捕获组</td></tr><tr>  <td align="center">leftContext</td>  <td align="center">$`</td>  <td align="center">input字符串中lastMatch之前的文本</td></tr><tr>  <td align="center">multiline</td>  <td align="center">$*</td>  <td align="center">布尔值，表示是否所有的表达式都使用多行模式</td></tr><tr>  <td align="center">rightContext</td>  <td align="center">$’</td>  <td align="center">input字符串中lastMatch之后的文本</td></tr></tbody></table>
+
+
+
+<h2 id="function-类型">Function 类型</h2>
+
+<ol><li rel="1"><p>函数实际上是一个对象。（<strong>函数是对象，函数名是指针</strong>）</p></li>
+<li rel="2"><p>函数的三种语法</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">    <span class="hljs-comment">//函数声明语法</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//函数表达式</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> sum=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//Function构造函数</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//不推荐这种写法，不过它可以帮你理解 “函数是对象，函数名是指针” 的概念。</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> sum=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">"num1"</span>,<span class="hljs-string">"num2"</span>,<span class="hljs-string">"return num1+num2"</span>);
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<ol start="3"><li rel="3"><p>每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。</p></li>
+<li rel="4"><p>函数名实际上是一个指向函数对象的指针。</p></li>
+<li rel="5"><p>JavaScript 没有重载。</p></li>
+<li rel="6"><p><strong>函数声明在代码执行的顺序中优于函数表达式</strong>，原因是在代码开始执行之前，解析器就已经通过一个名为函数声明提升的过程，读取并将声明添加到执行环境中。对代码求值时，JavaScript 引擎在第一遍会声明函数并将它们放到源代码树的顶部。所以，即使声明函数的代码在调用它的代码后面，JavaScript 引擎也能把声明函数提示到顶部。</p></li>
+<li rel="7"><p>解析器在向执行环境中加载数据时，解析器会率先读取函数声明，并使其在执行任何代码之前可以访问；至于函数表达式，则必须等到解析器到它所在的代码行，才会真正被解释执行。</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">            <span class="hljs-comment">//函数声明,可以执行</span>
+</div><div class="hljs-line">            alert(sum(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>));
+</div><div class="hljs-line">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">            <span class="hljs-comment">//函数表达式，报错</span>
+</div><div class="hljs-line">            alert(sum(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>));
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> sum=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num1,num2</span>)</span>{
+</div><div class="hljs-line">                <span class="hljs-keyword">return</span> num1+num2;
+</div><div class="hljs-line">            }
+</div></code></pre>
+
+<ol start="8"><li rel="8"><p>要访问函数的指针而不执行函数的话，必须去掉函数名后面那对圆括号。</p></li>
+<li rel="9"><p>因为函数名本身就是变量，所以函数可以作为值来使用。第一你可以像传递参数一样把一个函数传递给另一个函数，第二你可以将函数作为另一个函数的结果返回。</p></li>
+<li rel="10"><p>函数内部的属性</p>
+
+<ol>
+<li rel="1"><p>arguments.callee 该属性是一个指针，指向 拥有arguments对象的函数。（现在已逐渐淘汰，尽量不要用）</p></li>
+<li rel="2"><p>arguments 是一个类数组的对象。</p></li>
+<li rel="3"><p>this ，this引用的是函数执行的环境对象，当在网页的全局作用域中调用函数时this对象引用的就是window。</p></li>
+<li rel="4"><p>caller ，这个属性中保存着调用当前函数的引用，如果是在全局作用域中调用当前函数，它的值为null。另外也可以通过 arguments.callee.caller 来访问该属性。</p></li></ol></li>
+<li rel="11"><p>函数属性和方法</p>
+
+<ol>
+<li rel="1"><p>function.object.length，表示函数希望接收的命名参数的个数。</p></li>
+<li rel="2"><p>prototype ，引用类型的原型，用以保存引用类型实例方法。（之后的JavaScript的面向对象会重点提到，这里不做过多介绍。）</p></li>
+<li rel="3"><p>apply( ) 和 call( ) 的用途都是在特定的作用域中调用函数，也可以理解为扩充函数作用域的方法。它们的区别只是在参数的传递上。</p></li>
+<li rel="4"><p>bind( ) ,这个方法会创建一个函数的实例，其this值会被绑定到传给bind( )函数的值。</p></li></ol></li>
+</ol>
+
+
+
+<h2 id="基本包装类型">基本包装类型</h2>
+
+<ol><li rel="1"><p>基本包装类型即Boolean、Number和String。可以理解为Object 对布尔值、数值、字符串的包装类型。</p></li>
+<li rel="2"><p>Number 的方法</p>
+
+<ol>
+<li rel="1"><p>Number.toFixed( ) ，按照指定的小数位返回数值的字符串表示，适用于处理货币值。</p></li>
+<li rel="2"><p>Number.toExponetial( ) ，以指数表示法返回数值的字符串形式。</p></li>
+<li rel="3"><p>Number.toPrecision( ) ，根据表示数值所有数字的位数的参数，来返回不同的数值表示法。</p></li></ol></li>
+<li rel="3"><p>String 类型</p>
+
+<ol>
+<li rel="1"><p>String.length ，返回字符串的字符数。</p></li>
+<li rel="2"><p>String.charAt( ) ，参数是字符的length值，返回指定位置的字符。（实际上是字符串，因为JS没字符类型）</p></li>
+<li rel="3"><p>String.charCodeAt( ) ，参数是字符的length值，返回指定位置的字符编码。</p></li>
+<li rel="4"><p>String.concat( ) ，连接两个字符串。</p></li>
+<li rel="5"><p>slicce( )、substr( )、substring( ) ，基于子字符串创建新的字符串的方法。</p></li>
+<li rel="6"><p>indexOf( )、lastIndexOf( ) ，搜索给定的子字符串，返回子字符串的位置，一个从前往后，一个从后往前。</p></li>
+<li rel="7"><p>trim( ) ，创建一个字符串的副本，删除前置和后缀的所有空格.</p></li>
+<li rel="8"><p>字符串大小写装换方法，toLowerCase( ) 、toLocalLowerCase( ) 、toUpperCase( ) 、toLocalUpperCase( ) 。</p></li>
+<li rel="9"><p>match( )，参数是一个正则表达式或RegExp对象，返回匹配模式的数组。</p></li>
+<li rel="10"><p>search( )，参数是一个正则表达式或RegExp对象，返回第一个匹配项的索引，没找到返回-1.</p></li>
+<li rel="11"><p>replace( ),参数是第一个RegExp对象或是一个字符串（非正则表达式），第二个是用以替换的字符串或者是一个函数。</p></li>
+<li rel="12"><p>split( )，基于指定的分隔符将一个字符串分割成多个字符串，并将结果放在一个数组里。第一个参数是分隔符，也可以是一个RegExp对象，第二个参数是数组的长度。</p></li>
+<li rel="13"><p>String.localeCompare(str )，用于比较两个字符串，返回数字-1，0，1 。零是两个字符串相等，正一和负一表示参数的首字母在字符串之前或之后。这个方法不区分大小写。  </p></li></ol></li>
+</ol></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/12/16/红宝书阅读笔记ch5-2/" data-id="ck4crf0h70006n4q6qp50hwew" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-红宝书阅读笔记ch5-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/29/红宝书阅读笔记ch5-1/" class="article-date">
@@ -430,7 +677,7 @@ ECMAScript5 为数组定义了五个迭代方法，每个方法都要接受两�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/29/红宝书阅读笔记ch5-1/" data-id="ck3k6wiz80005ioq6ridzsyiy" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/29/红宝书阅读笔记ch5-1/" data-id="ck4crf0hh0007n4q6ivc28i4h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -497,7 +744,7 @@ ECMAScript5 为数组定义了五个迭代方法，每个方法都要接受两�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/07/红宝书阅读笔记ch4/" data-id="ck3k6witl0000ioq63fvm3mdb" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/07/红宝书阅读笔记ch4/" data-id="ck4crf0by0001n4q68p0n1se3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -650,7 +897,7 @@ with (expression) statement ; <br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck3k6wiwi0003ioq6vqup7rgw" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck4crf0fe0003n4q60acmaj8o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -820,7 +1067,7 @@ btw 我的解法在.hasOwnProperty 不行，记录下来下次再看看。</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck3k6wiwe0002ioq6sxjgvs7p" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck4crf0dx0002n4q6h6rghn1e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1048,7 +1295,7 @@ ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck3k6wj0r0008ioq62xcgn734" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck4crf0jh0009n4q6bbsak5jn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1300,7 +1547,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck3k6wix40004ioq6yxbbwa8s" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck4crf0h30005n4q61ji4pitu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1461,11 +1708,11 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
 </ol>
 
 <p style="margin: 0 0 1.1em; line-height: 1.6;">2019/6/30 22:40:43 </p></div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">%23%20%u300A%u7EA2%u5B9D%u4E66%u9605%u8BFB%u7B14%u8BB0%u300B%20%23%0A%23%23%20CH2%20%23%23%0A1.%20%5C%3Cscript%5C%3E%u5143%u7D20%20%20%0A%091.1%20%u5411HTML%u9875%u9762%u4E2D%u63D2%u5165JavaScript%u7684%u4E3B%u8981%u65B9%u6CD5%uFF0C%u5C31%u662F%u4F7F%u7528%5C%3Cscript%5C%3E%u5143%u7D20%u3002%u8FD9%u4E2A%u5143%u7D20%u7531Netscape%u521B%u9020%u5E76%u5728Netscape%20Navigator%202%u4E2D%u9996%u6B21%u5B9E%u73B0%u3002%u540E%u6765%uFF0C%u8FD9%u4E2A%u5143%u7D20%u88AB%u52A0%u5165%u5230%u6B63%u5F0F%u7684HTML%u89C4%u8303%u4E2D%u3002HTML4.01%u4E2D%u4E3A%5C%3Cscript%5C%3E%u5B9A%u4E49%u4E86%u4E0B%u5217%u516D%u4E2A%u5143%u7D20%u3002%0A%09-%20async%3A%u53EF%u9009%u3002%u8868%u793A%u5E94%u8BE5%u7ACB%u5373%u4E0B%u8F7D%u811A%u672C%uFF0C%u4F46%u4E0D%u5E94%u59A8%u788D%u9875%u9762%u4E2D%u7684%u5176%u4ED6%u64CD%u4F5C%uFF0C%u6BD4%u5982%u4E0B%u8F7D%u5176%u4ED6%u8D44%u6E90%u6216%u7B49%u5F85%u52A0%u8F7D%u5176%u4ED6%u811A%u672C%u3002**%u53EA%u5BF9%u5916%u90E8%u811A%u672C%u6587%u4EF6%u6709%u6548%u3002**%0A%09-%20charset%3A%u53EF%u9009%u3002%u8868%u793A%u901A%u8FC7src%u5C5E%u6027%u6307%u5B9A%u7684%u4EE3%u7801%u7684%u5B57%u7B26%u96C6%u3002%0A%09-%20defer%3A%u53EF%u9009%u3002%u8868%u793A%u811A%u672C%u53EF%u4EE5%u5EF6%u8FDF%u5230%u6587%u6863%u5B8C%u5168%u88AB%u89E3%u6790%u548C%u663E%u793A%u4E4B%u540E%u518D%u6267%u884C%u3002**%u53EA%u5BF9%u5916%u90E8%u811A%u672C%u6587%u4EF6%u6709%u6548%u3002**%0A%09-%20languge%3A%u5DF2%u5E9F%u5F03%u3002%0A%09-%20src%3A%u53EF%u9009%u3002%u8868%u793A%u5305%u542B%u8981%u6267%u884C%u4EE3%u7801%u7684%u5916%u90E8%u6587%u4EF6%u3002%0A%09-%20type%3A%u53EF%u9009%u3002%u8868%u793A%u7F16%u5199%u4EE3%u7801%u4F7F%u7528%u7684%u811A%u672C%u8BED%u8A00%u7684%u5185%u5BB9%u7C7B%u578B%uFF08%u4E5F%u79F0%u4E3AMIME%u7C7B%u578B%uFF09%u3002%u9ED8%u8BA4%u503C%u4E3Atext%5C/javascript%u3002%20%20%0A%0A%091.2%20%u4F7F%u7528%5C%3Cscript%5C%3E%u5143%u7D20%u7684%u65B9%u5F0F%u6709%u4E24%u79CD%uFF1A%20%20%0A%09%u2460%20%u76F4%u63A5%u5728%u9875%u9762%u4E2D%u5D4C%u5165JavaScript%u4EE3%u7801%3B%20%20%0A%09%09%0A%09%09%60%3Cscript%20type%3D%22text/jscript%22%3E%0A%09%09%09function%20sayHi%28%29%7B%0A%09%09%09%09alert%28%22Hi%22%29%3B%0A%09%09%09%7D%0A%09%09%3C/script%3E%60%0A%0A%09%u2461%20%u5305%u542B%u5916%u90E8%u7684JavaScript%u6587%u4EF6%u3002%20%20%0A%09%60%3Cscript%20type%3D%22text/javascript%22%20src%3D%22js/example.js%22%3E%3C/script%3E%60%20%20%0A%09%u9700%u8981%u6CE8%u610F%u7684%u662F%uFF0C%u5E26%u6709src%u5C5E%u6027%u7684%5C%3Cscript%5C%3E%u5143%u7D20%u4E0D%u5E94%u8BE5%u5728%5C%3Cscript%5C%3E%u548C%5C%3C%5C/script%3E%u6807%u7B7E%u4E4B%u95F4%u518D%u542B%u989D%u5916%u7684JavaScript%u4EE3%u7801%u3002%u5982%u679C%u5305%u542B%u4E86%u5D4C%u5165%u7684%u4EE3%u7801%uFF0C%u5219%u53EA%u4F1A%u4E0B%u8F7D%u5E76%u6267%u884C%u5916%u90E8%u6587%u4EF6%uFF0C%u5D4C%u5165%u7684%u4EE3%u7801%u4F1A%u88AB%u5FFD%u7565%u3002%20%20%0A%09%u53E6%u5916%uFF0C%u901A%u8FC7%5C%3Cscript%5C%3E%u5143%u7D20%u7684src%u5C5E%u6027%u8FD8%u53EF%u4EE5%u5305%u542B%u6765%u81EA%u5916%u90E8%u57DF%u7684JavaScript%u6587%u4EF6%u3002%20%20%0A%09%u5916%u90E8JavaScript%u6587%u4EF6%u5E26%u6709%u7684%u6269%u5C55%u540D%u4E0D%u662F%u5FC5%u987B%u7684%uFF0C%u56E0%u4E3A%u6D4F%u89C8%u5668%u4E0D%u4F1A%u68C0%u67E5%u5305%u542BJavaScript%u7684%u6587%u4EF6%u7684%u6269%u5C55%u540D%u3002%u8FD9%u6837%u4E00%u6765%uFF0C%u5C31%u53EF%u4EE5%u7528%u5176%u4ED6%u670D%u52A1%u5668%u7AEF%u8BED%u8A00%u52A8%u6001%u751F%u6210JavaScript%u4EE3%u7801%u3002%20%20%0A%09%u65E0%u8BBA%u5982%u4F55%u5305%u542B%u4EE3%u7801%uFF0C%u53EA%u8981%u4E0D%u5B58%u5728defer%u548Casync%u5C5E%u6027%uFF0C%u6D4F%u89C8%u5668%u90FD%u4F1A%u6309%u7167%5C%3Cscript%5C%3E%u5143%u7D20%u5728%u9875%u9762%u4E2D%u51FA%u73B0%u7684%u5148%u540E%u987A%u5E8F%u5BF9%u5B83%u4EEC%u4F9D%u6B21%u89E3%u6790%u3002%20%20%0A%0A2.%20%u6807%u7B7E%u7684%u4F4D%u7F6E%20%20%0A%u4F20%u7EDF%u7684%u505A%u6CD5%u662F%u5C06%u6240%u6709%u7684%5C%3Cscript%5C%3E%u90FD%u653E%u5230%5C%3Chead%3E%u5143%u7D20%u4E2D%uFF0C%u8FD9%u6837%u505A%u7684%u76EE%u7684%u662F%u628A%u6240%u6709%u7684%u5916%u90E8%u6587%u4EF6%u7684%u5F15%u7528%u90FD%u653E%u5728%u76F8%u540C%u7684%u4F4D%u7F6E%uFF0C%u8FD9%u6837%u505A%u7684%u7F3A%u70B9%u662F%u53EA%u6709%5C%3Chead%3E%u5143%u7D20%u4E2D%u5305%u542B%u7684%u6240%u6709%u6587%u4EF6%u88AB%u4E0B%u8F7D%u4E4B%u540E%u624D%u4F1A%u5F00%u59CB%u5448%u73B0%u9875%u9762%u7684%u5185%u5BB9%u3002%u5BF9%u4E8E%u9700%u8981%u5F88%u591A%u7684JavaScript%u4EE3%u7801%u7684%u9875%u9762%u6765%u8BF4%uFF0C%u8FD9%u4F1A%u5BFC%u81F4%u6D4F%u89C8%u5668%u5448%u73B0%u7684%u9875%u9762%u51FA%u73B0%u660E%u663E%u7684%u5EF6%u8FDF%uFF0C%u800C%u5EF6%u8FDF%u671F%u95F4%u7684%u6D4F%u89C8%u5668%u7A97%u53E3%u4F1A%u662F%u4E00%u7247%u7A7A%u767D%u3002%20%20%0A%60%60%60%20vbscript-html%0A%20%20%20%20%3C%21DOCTYPE%20html%3E%0A%20%20%20%20%3Chtml%3E%0A%20%20%20%20%09%3Chead%3E%0A%20%20%20%20%09%09%3Cmeta%20charset%3D%22utf-8%22%20/%3E%0A%20%20%20%20%09%09%3Ctitle%3EExample%20HTML%20Page%3C/title%3E%0A%20%20%20%20%09%09%3Cscript%20type%3D%22text/javascript%22%20src%3D%22js/example1.js%22%3E%3C/script%3E%0A%20%20%20%20%09%09%3Cscript%20type%3D%22text/javascript%22%20src%3D%22js/example2.js%22%3E%3C/script%3E%0A%20%20%20%20%09%3C/head%3E%0A%20%20%20%20%09%3Cbody%3E%0A%20%20%20%20%09%09%3C%21--%20%u8FD9%u91CC%u653E%u5185%u5BB9%20--%3E%0A%20%20%20%20%09%3C/body%3E%0A%20%20%20%20%3C/html%3E%0A%60%60%60%20%20%0A%0A%u73B0%u5728%u4E3A%u4E86%u907F%u514D%u4E0A%u8FF0%u7684%u9875%u9762%u7A7A%u767D%u7684%u95EE%u9898%uFF0C%u73B0%u4EE3Web%u5E94%u7528%u7A0B%u5E8F%u4E00%u822C%u90FD%u628AJavaScript%u5F15%u7528%u5230%u653E%u5728%5C%3Cbody%3E%u5143%u7D20%u4E2D%u9875%u9762%u5185%u5BB9%u7684%u540E%u9762%uFF0C%u5982%u4E0B%u6240%u793A%uFF1A%20%20%0A%0A%60%60%60%0A%20%20%20%20%3C%21DOCTYPE%20html%3E%0A%20%20%20%20%3Chtml%3E%0A%20%20%20%20%09%3Chead%3E%0A%20%20%20%20%09%09%3Cmeta%20charset%3D%22utf-8%22%20/%3E%0A%20%20%20%20%09%09%3Ctitle%3EExample%20HTML%20Page%3C/title%3E%0A%20%20%20%20%09%3C/head%3E%0A%20%20%20%20%09%3Cbody%3E%0A%20%20%20%20%09%09%3C%21--%20%u8FD9%u91CC%u653E%u5185%u5BB9%20--%3E%0A%20%20%20%20%09%09%3Cscript%20type%3D%22text/javascript%22%20src%3D%22js/example1.js%22%3E%3C/script%3E%0A%20%20%20%20%09%09%3Cscript%20type%3D%22text/javascript%22%20src%3D%22js/example2.js%22%3E%3C/script%3E%0A%20%20%20%20%09%3C/body%3E%0A%20%20%20%20%3C/html%3E%0A%60%60%60%20%20%0A*%u6CE8%uFF1A%u8FD9%u6837%u5199%u7B14%u8BB0%u592A%u6162%u4E86%uFF0C%u6211%u60F3%u7B80%u5355%u4E00%u70B9%u5199%2C%u4E00%u4E2A%u77E5%u8BC6%u70B9%u5C3D%u91CF%u7528%u4E00%u53E5%u8BDD%u6982%u62EC%u3002*%0A%0A3.%20%u5EF6%u8FDF%u811A%u672C%20%20%0A%09%5C%3Cscript%5C%3E%u6807%u7B7E%u4E2D%u7684defer%u5C5E%u6027%uFF0C%u8868%u793A%u811A%u672C%u5728%u6267%u884C%u65F6%u4E0D%u4F1A%u5F71%u54CD%u5230%u9875%u9762%u7684%u6784%u9020%uFF0C%u76F8%u5F53%u4E8E%u811A%u672C%u4F1A%u88AB%u5EF6%u8FDF%u5230%u9875%u9762%u89E3%u6790%u5B8C%u6BD5%u540E%u518D%u6267%u884C%u3002%u6709%u4EE5%u4E0B%u51E0%u4E2A%u91CD%u70B9%uFF1A%0A%09-%20%09%u5728%5C%3Cscript%5C%3E%u6807%u7B7E%u4E2D%u8BBE%u7F6Edefer%u5C5E%u6027%uFF0C%u76F8%u5F53%u4E8E%u544A%u8BC9%u6D4F%u89C8%u5668%u7ACB%u5373%u4E0B%u8F7D%uFF0C%u4F46%u5EF6%u8FDF%u6267%u884C%u3002%0A%09-%20%09HTML5%u89C4%u8303%u8981%u6C42%u811A%u672C%u6309%u7167%u5B83%u4EEC%u51FA%u73B0%u7684%u4F4D%u7F6E%u4F9D%u6B21%u6267%u884C%u3002%u56E0%u6B64%u591A%u4E2A%u5EF6%u8FDF%u811A%u672C%uFF0C%u4F1A%u4F9D%u6B21%u6267%u884C%uFF0C%u4F46%u73B0%u5B9E%u4E2D%u53EF%u80FD%u4F1A%u6709%u5176%u4ED6%u5143%u7D20%u5F71%u54CD%u5230%u5EF6%u8FDF%u811A%u672C%u7684%u6267%u884C%u987A%u5E8F%uFF0C%u56E0%u6B64%u6700%u597D%u53EA%u5305%u542B%u4E00%u4E2A%u5EF6%u8FDF%u811A%u672C%u3002%0A%09-%20%09defer%u5C5E%u6027%u53EA%u9002%u7528%u4E8E%u5916%u90E8%u811A%u672C%u3002%0A%09-%20%09%u5C06%u5EF6%u8FDF%u811A%u672C%u653E%u5728%u9875%u9762%u5E95%u90E8%u662F%u6700%u4F73%u9009%u62E9%u3002%0A%0A4.%20%u5F02%u6B65%u811A%u672C%20%20%0A%09%5C%3Cscript%5C%3E%u5143%u7D20%u4E2D%u7684async%uFF0C%u53EA%u9002%u7528%u4E8E%u5916%u90E8%u811A%u672C%u6587%u4EF6%uFF0C%u544A%u8BC9%u6D4F%u89C8%u5668%u7ACB%u5373%u4E0B%u8F7D%u6587%u4EF6%uFF0C%u548Cdefer%u4E0D%u540C%u7684%u662F%u6807%u8BB0%u4E3Aasync%u7684%u811A%u672C%uFF0C%u5E76%u4E0D%u4FDD%u8BC1%u5B83%u4EEC%u7684%u5148%u540E%u987A%u5E8F%u6267%u884C%u3002%0A%09-%20%u56E0%u4E3A%u4E0D%u80FD%u4FDD%u8BC1%u4E24%u4E2A%u811A%u672C%u4F1A%u4F9D%u6B21%u6267%u884C%uFF0C%u6240%u4EE5%u8981%u786E%u4FDD%u4E24%u4E2A%u811A%u672C%u4E4B%u95F4%u6709%u4F9D%u8D56%u5173%u7CFB%u3002%0A%09-%20%u6307%u5B9Aasync%u5C5E%u6027%u7684%u76EE%u7684%u5728%u4E8E%u4E0D%u8BA9%u9875%u9762%u7B49%u5F85%u4E24%u4E2A%u811A%u672C%u4E0B%u8F7D%u548C%u6267%u884C%uFF0C%u4ECE%u800C%u4FDD%u8BC1%u5F02%u6B65%u52A0%u8F7D%u9875%u9762%u7684%u5176%u4ED6%u5185%u5BB9%u3002%0A%09-%20%u5EFA%u8BAE%u5F02%u6B65%u811A%u672C%u4E0D%u8981%u5728%u52A0%u8F7D%u671F%u95F4%u4FEE%u6539DOM%u3002%0A%09-%20%u5F02%u6B65%u811A%u672C%u4E00%u5B9A%u4F1A%u5728load%u4E8B%u4EF6%u524D%u6267%u884C%uFF0C%u4F46%u53EF%u80FD%u4F1A%u5728DOMContentLoaded%u4E8B%u4EF6%u89E6%u53D1%u4E4B%u524D%u6216%u4E4B%u540E%u6267%u884C%u3002%0A%09-%20%u652F%u6301%u5F02%u6B65%u811A%u672C%u7684%u6D4F%u89C8%u5668%u6709Firefox3.6%u3001S%20Safari5%u3001Chrome%u3002%0A%09-%20%u5728XML%u4E2D%u8981%u5C06async%u5C5E%u6027%u8BBE%u7F6E%u6210async%3D%22async%22%u3002%20%20%0A%0A5.%20%u5D4C%u5165%u4EE3%u7801%u4E0E%u5916%u90E8%u6587%u4EF6%20%20%0A%09%u5916%u90E8%u6587%u4EF6%u7684JavaScript%u6BD4%u5D4C%u5165%u5F0F%u7684JavaScript%u6765%u8BF4%u6709%u4EE5%u4E0B%u4E09%u4E2A%u4F18%u70B9%uFF1A%20%20%0A%09-%20%20%u53EF%u7EF4%u62A4%u6027%0A%09-%20%20%u53EF%u7F13%u5B58%0A%09-%20%20%u9002%u5E94%u672A%u6765%20%20%0A%0A6.%20%u6587%u6863%u6A21%u5F0F%u770B%u4E0D%u61C2%20%20%0A%09%u6587%u6863%u6A21%u5F0F%u901A%u8FC7doctype%u5207%u6362%u5B9E%u73B0%u3002%0A%09%0A%60%60%60%20html%0A%3C%21--%20HTML%204.01%20%u4E25%u683C%u578B%20--%3E%0A%3C%21DOCTYPE%20HTML%20PUBLIC%20%22-//W3C//DTD%20HTML%204.01//EN%22%0A%22http%3A//www.w3.org/TR/html4/strict.dtd%22%3E%0A%0A----------%0A%0A%3C%21--%20XHTML%204.01%20%u4E25%u683C%u578B%20--%3E%0A%3C%21DOCTYPE%20html%20PUBLIC%20%22-//W3C//DTD%20XHTML%201.0%20Strict//EN%22%0A%22http%3A//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd%22%3E%0A%3C%21--%20H5%20--%3E%0A%3C%21DOCTYPE%20html%3E%0A%60%60%60%20%20%0A7.%20%5C%3Cnoscript%5C%3E%u5143%u7D20%20%20%0A%09%u88AB%5C%3Cnoscript%5C%3E%u5143%u7D20%u5305%u542B%u7684%u6807%u7B7E%u53EA%u6709%u5728%u6D4F%u89C8%u5668%u4E0D%u652F%u6301%u76D1%u672C%uFF0C%u6216%u662F%u811A%u672C%u88AB%u7981%u7528%u7684%u60C5%u51B5%u4E0B%u624D%u51FA%u73B0%u3002%uFF08%5C%3Cscript%5C%3E%u5143%u7D20%u9664%u5916%uFF09%20%20%0A%0A2019/6/30%2022%3A40%3A43%20</center><br></span>
-</div></a></body></html> 
+</div></a></body></html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck3k6wj080007ioq60axkk17l" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck4crf0iw0008n4q68kcgygb3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1520,7 +1767,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck3k6wivf0001ioq69lxvzbyv" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck4crf0fg0004n4q686tdm7pk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1569,7 +1816,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck3k6wj050006ioq6t4ptzi1r" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck4crf0bl0000n4q6blg47y4j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1597,7 +1844,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
     </div>
   </div>
 
@@ -1608,6 +1855,10 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/12/16/红宝书阅读笔记ch5-2/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/11/29/红宝书阅读笔记ch5-1/">(no title)</a>
@@ -1623,10 +1874,6 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
         
           <li>
             <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/25/红宝书阅读笔记ch3-2/">(no title)</a>
           </li>
         
       </ul>
