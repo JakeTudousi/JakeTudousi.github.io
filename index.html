@@ -62,6 +62,133 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-红宝书阅读笔记ch5-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/20/红宝书阅读笔记ch5-3/" class="article-date">
+  <time datetime="2019-12-20T06:26:51.793Z" itemprop="datePublished">2019-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><title>红宝书阅读笔记ch5-3</title><meta charset="utf-8"><link href="https://cdn.maxiang.io/res-min/themes/marxico.css" rel="stylesheet"><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id="preview-contents" class="note-content">
+                        
+                    
+
+
+
+<h1 id="红宝书阅读笔记ch5-3">红宝书阅读笔记ch5-3</h1>
+
+<p>单体内置对象（Global对象和Math对象）</p>
+
+
+
+<h2 id="单体内置对象">单体内置对象</h2>
+
+<p>啥叫单体内置对象？ <br>
+    这要分成两部分来说，首先说下什么是内置对象？内置对象的定义是：“由ECMAScript实现提供的、不依赖于宿主环境的对象，这些对象在ECMAScript程序执行之前就已经存在了。”意思是开发人员不必实例化内置对象，因为它们已经实例化了。例如Object、Array和String。 <br>
+    根据前面对内置对象的理解，单体内置对象按我的理解即整个程序中只有一个的内置对象就是单体内置对象，写法就是不用实例化的而且只有一个的对象，可以直接使用这个对象的方法。  </p>
+
+
+
+<h3 id="global-对象">Global 对象</h3>
+
+<p>Global （全局）对象，是ECMAScript对象中最特别的一个对象了，因为你根本看不见它，但是它确实是存在的，不属于其他对象的属性和方法，都是它的的属性和方法。事实上，没有全局函数和全局变量；所有在全局作用域中的定义的属性和函数，都是Global 对象的属性。例如 parseFloat ( )、isNaN( )、isFinite( )都是Global 对象的方法。 <br>
+    除此之外Global 对象还有其他的方法。  </p>
+
+<ol><li rel="1"><p>URI 编码方法，要进行编码是因为有效的URI不能包括某些字符，如空格。 <br>
+    1. encodeURI( )，应用整个URI，将空格编码成 %20 ，除此之外其他不变 <br>
+    2. encodeURIComponent( ) ，应用URI中的某一段，将所有非字母和数字的字符进行编码替换。</p></li>
+<li rel="2"><p>解码方法 <br>
+    1. decodeURI( )，对encodeURI( )进行解码，只会将%20 变成空格。 <br>
+    2. decodeURIComponent( )，对encodeURIComponent( )进行解码，可以解任何特殊字符的编码。 <br>
+    3. eval( ) 方法，接收一个参数，即要执行的ECMAScript字符串。  它的作用是解释代码字符串。</p></li>
+<li rel="3"><p>Global 对象的属性  </p></li>
+</ol>
+
+<table><tbody><tr style="font-weight:bold">  <td align="center">属性</td>  <td align="center">说明</td>  <td align="center">属性</td>  <td align="center">说明</td></tr><tr>  <td align="center">undefined</td>  <td align="center">特殊值undefined</td>  <td align="center">Date</td>  <td align="center">构造函数Date</td></tr><tr>  <td align="center">NaN</td>  <td align="center">特殊值NaN</td>  <td align="center">RegExp</td>  <td align="center">构造函数RegExp</td></tr><tr>  <td align="center">Infinity</td>  <td align="center">特殊值Infinity</td>  <td align="center">Error</td>  <td align="center">构造函数Error</td></tr><tr>  <td align="center">Object</td>  <td align="center">构造函数Object</td>  <td align="center">EvalError</td>  <td align="center">构造函数EvalError</td></tr><tr>  <td align="center">Array</td>  <td align="center">构造函数Array</td>  <td align="center">RangeError</td>  <td align="center">构造函数RangeError</td></tr><tr>  <td align="center">Function</td>  <td align="center">构造函数Function</td>  <td align="center">ReferenceError</td>  <td align="center">构造函数ReferenceError</td></tr><tr>  <td align="center">Boolean</td>  <td align="center">构造函数Boolean</td>  <td align="center">SyntaxError</td>  <td align="center">构造函数SyntaxError</td></tr><tr>  <td align="center">String</td>  <td align="center">构造函数String</td>  <td align="center">TypeError</td>  <td align="center">构造函数TypeError</td></tr><tr>  <td align="center">Number</td>  <td align="center">构造函数Number</td>  <td align="center">URIError</td>  <td align="center">构造函数URIError</td></tr></tbody></table>
+
+<ol start="4"><li rel="4"><p>window 对象，Global全局对象作为window对象的一部分加以实现的。即Global属于window对象的一部分。</p></li>
+</ol>
+
+
+
+<h3 id="math对象">Math对象</h3>
+
+<p>ECMAScript为保存数学公式和信息提供了一个公共位置，即Math对象。与我们在JavaScript中直接编写的计算功能相比，Math对象提供的计算功能执行起来要快得多。</p>
+
+<ol start="1"><li rel="1"><p>Math 对象的属性</p></li>
+</ol>
+
+<table><tbody><tr style="font-weight:bold">  <td align="left">属性</td>  <td align="left">说明</td></tr><tr>  <td align="left">Math.E</td>  <td align="left">自然对数的底数，即常量e的值</td></tr><tr>  <td align="left">Math.LN10</td>  <td align="left">10的自然对数</td></tr><tr>  <td align="left">Math.LN2</td>  <td align="left">2的自然对数</td></tr><tr>  <td align="left">Math.LOG2E</td>  <td align="left">以2为底e的对数</td></tr><tr>  <td align="left">Math.LOG10E</td>  <td align="left">以10为底e的对数</td></tr><tr>  <td align="left">Math.PI</td>  <td align="left">π的值</td></tr><tr>  <td align="left">Math.SQRT1_2</td>  <td align="left">1/2的平方根</td></tr><tr>  <td align="left">Math.2</td>  <td align="left">2的平方根</td></tr></tbody></table>
+
+<ol start="2"><li rel="2"><p>min( ) 和 max( ) 方法  ，得出一组数字中的最小值和最大值。</p>
+
+<ol>
+<li rel="1"><p>找到数组中的最大或最小值</p></li></ol></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> values=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>];
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> max=<span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-built_in">Math</span>,values);
+</div><div class="hljs-line">        alert(max);
+</div></code></pre>
+
+<ol start="3"><li rel="3"><p>舍入方法</p>
+
+<ol>
+<li rel="1"><p>Math.ceil( ) ，执行向上舍入，取整数 </p></li>
+<li rel="2"><p>Math.florr( )，执行向下舍入，取整数</p></li>
+<li rel="3"><p>Math.round( ),四舍五入，取整数</p></li></ol></li>
+<li rel="4"><p>random( ) 方法 ，返回一个大于等于0小于1的随机数。</p>
+
+<ol>
+<li rel="1"><p>取整数的公式 <br>
+值 = Math.floor( Math.random( ) * 可能值的总数 + 第一个可能的值 )</p></li>
+<li rel="2"><p>1到10之间的数值 <br>
+var num=Math.floor( Math.random() * 10 + 1 );</p></li>
+<li rel="3"><p>函数</p></li></ol></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">selectFrom</span>(<span class="hljs-params">lowerValue, upperValue</span>) </span>{
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> choices = upperValue - lowerValue + <span class="hljs-number">1</span>;
+</div><div class="hljs-line">            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * choices + lowerValue);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        <span class="hljs-comment">//取数组中的随机一项</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> colors=[<span class="hljs-string">"red"</span>,<span class="hljs-string">"green"</span>,<span class="hljs-string">"blue"</span>,<span class="hljs-string">"black"</span>,<span class="hljs-string">"purple"</span>,<span class="hljs-string">"brown"</span>];
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> color=colors[selectFrom(<span class="hljs-number">0</span>,colors.length<span class="hljs-number">-1</span>)];
+</div><div class="hljs-line">        <span class="hljs-comment">//取1到10之间的任意一个整数</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> num=selectFrom(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>);
+</div></code></pre>
+
+<ol start="5"><li rel="5"><p>其他方法</p></li>
+</ol>
+
+<table><tbody><tr style="font-weight:bold">  <td align="left">方法</td>  <td align="left">说明</td>  <td align="left">方法</td>  <td align="left">说明</td></tr><tr>  <td align="left">Math.abs(num)</td>  <td align="left">返回num的绝对值</td>  <td align="left">Math.asin(x)</td>  <td align="left">返回x的反正弦值</td></tr><tr>  <td align="left">Math.exp(num)</td>  <td align="left">返回Math.E的num次幂</td>  <td align="left">Math.atan(x)</td>  <td align="left">返回x的反正切值</td></tr><tr>  <td align="left">Math.log(num)</td>  <td align="left">返回num的自然对数</td>  <td align="left">Math.atan2(y,x)</td>  <td align="left">返回有y,x的反正切值</td></tr><tr>  <td align="left">Math.pow(num,power)</td>  <td align="left">返回num的power次幂</td>  <td align="left">Math.cos(x)</td>  <td align="left">返回x的余弦值</td></tr><tr>  <td align="left">Math.sqrt(num)</td>  <td align="left">返回num的平方根</td>  <td align="left">Math.sin(x)</td>  <td align="left">返回x的正弦值</td></tr><tr>  <td align="left">Math.acos(x)</td>  <td align="left">返回x的反余弦值</td>  <td align="left">Math.tan(x)</td>  <td align="left">返回x的正切值</td></tr></tbody></table>
+
+<p>2019.12.20</p></div></body></html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.1n40.cn/2019/12/20/红宝书阅读笔记ch5-3/" data-id="ck4druiyf000444q654fkdgtj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-红宝书阅读笔记ch5-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/12/16/红宝书阅读笔记ch5-2/" class="article-date">
@@ -98,10 +225,8 @@
 <ol>
 <li rel="1"><p>传入表示该日期的毫秒数（从1970到该日期所经过的毫秒数） 。</p></li>
 <li rel="2"><p>Date.prese( ) ，传入 一个表示日期的字符串，然后该方法尝试返回一个相应日期的毫秒数。</p></li>
-<li rel="3"><p>Date.UTC() ，传入一连串表示时间数字，返回表示日期的毫秒数。</p></li></ol></li>
+<li rel="3"><p>Date.UTC() ，传入一连串表示时间的数字，返回表示日期的毫秒数。</p></li></ol></li>
 </ol>
-
-
 
 <pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">        <span class="hljs-keyword">var</span> now=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-comment">//当前时间</span>
 </div><div class="hljs-line">        <span class="hljs-keyword">var</span> oneSecond=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1000</span>); <span class="hljs-comment">//一秒</span>
@@ -295,11 +420,13 @@ RegExp构造函数包含一些属性（你可以认为这是RegExp类型的 “�
 <li rel="11"><p>replace( ),参数是第一个RegExp对象或是一个字符串（非正则表达式），第二个是用以替换的字符串或者是一个函数。</p></li>
 <li rel="12"><p>split( )，基于指定的分隔符将一个字符串分割成多个字符串，并将结果放在一个数组里。第一个参数是分隔符，也可以是一个RegExp对象，第二个参数是数组的长度。</p></li>
 <li rel="13"><p>String.localeCompare(str )，用于比较两个字符串，返回数字-1，0，1 。零是两个字符串相等，正一和负一表示参数的首字母在字符串之前或之后。这个方法不区分大小写。  </p></li></ol></li>
-</ol></div></body></html>
+</ol>
+
+<p>2019.12.20</p></div></body></html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/12/16/红宝书阅读笔记ch5-2/" data-id="ck4crf0h70006n4q6qp50hwew" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/12/16/红宝书阅读笔记ch5-2/" data-id="ck4druiyx000644q6d32ybkgm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -677,7 +804,7 @@ ECMAScript5 为数组定义了五个迭代方法，每个方法都要接受两�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/29/红宝书阅读笔记ch5-1/" data-id="ck4crf0hh0007n4q6ivc28i4h" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/29/红宝书阅读笔记ch5-1/" data-id="ck4druizj000744q6o6qkabme" class="article-share-link">Share</a>
       
       
     </footer>
@@ -744,7 +871,7 @@ ECMAScript5 为数组定义了五个迭代方法，每个方法都要接受两�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/07/红宝书阅读笔记ch4/" data-id="ck4crf0by0001n4q68p0n1se3" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/07/红宝书阅读笔记ch4/" data-id="ck4druiya000244q6xr9dpbv9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -897,7 +1024,7 @@ with (expression) statement ; <br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck4crf0fe0003n4q60acmaj8o" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/11/06/红宝书阅读笔记ch3-3/" data-id="ck4druiyv000544q6jg6dsnxj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1067,7 +1194,7 @@ btw 我的解法在.hasOwnProperty 不行，记录下来下次再看看。</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck4crf0dx0002n4q6h6rghn1e" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/" data-id="ck4druizo000a44q6t59r8xu4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1295,7 +1422,7 @@ ECMAScript操作符适用于很多值，例如字符串、数字值、布尔值�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck4crf0jh0009n4q6bbsak5jn" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/25/红宝书阅读笔记ch3-2/" data-id="ck4druiyd000344q6swhvq9lo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1547,7 +1674,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck4crf0h30005n4q61ji4pitu" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/21/红宝书阅读笔记ch3-1/" data-id="ck4druizk000844q6p5jsb60j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1712,7 +1839,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck4crf0iw0008n4q68kcgygb3" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/09/11/红宝书阅读笔记ch2/" data-id="ck4druizm000944q675p64282" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1767,56 +1894,7 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck4crf0fg0004n4q686tdm7pk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/25/hello-world/" class="article-date">
-  <time datetime="2019-06-25T13:21:07.506Z" itemprop="datePublished">2019-06-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.1n40.cn/2019/06/25/hello-world/" data-id="ck4crf0bl0000n4q6blg47y4j" class="article-share-link">Share</a>
+      <a data-url="http://www.1n40.cn/2019/06/25/红宝书阅读笔记ch1/" data-id="ck4druix1000044q6wgngfwlg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1827,6 +1905,11 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -1857,6 +1940,10 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
       <ul>
         
           <li>
+            <a href="/2019/12/20/红宝书阅读笔记ch5-3/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/16/红宝书阅读笔记ch5-2/">(no title)</a>
           </li>
         
@@ -1870,10 +1957,6 @@ typeof操作符是用来检测给定变量的数据类型，对一个值使用ty
         
           <li>
             <a href="/2019/11/06/红宝书阅读笔记ch3-3/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/24/freeCodeCamp 前端开发课程 220（Profile Lookup）/">(no title)</a>
           </li>
         
       </ul>
